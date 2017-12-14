@@ -1,0 +1,25 @@
+{
+    "shellApp": {
+        "riesgo" : {
+            "home": {
+                "title": "Riesgos",
+                "createLabel": "Create a new Riesgo",
+                "createOrEditLabel": "Create or edit a Riesgo"
+            },
+            "created": "A new Riesgo is created with identifier {{ param }}",
+            "updated": "A Riesgo is updated with identifier {{ param }}",
+            "deleted": "A Riesgo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Riesgo {{ id }}?"
+            },
+            "detail": {
+                "title": "Riesgo"
+            },
+            "description": "Description",
+            "probabilidad": "Probabilidad",
+            "impacto": "Impacto",
+            "proyecto": "Proyecto",
+            "medida": "Medida"
+        }
+    }
+}

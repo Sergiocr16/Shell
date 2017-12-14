@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="shellApp.probabilidad.detail.title">Probabilidad</span> {{vm.probabilidad.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shellApp.probabilidad.categoria">Categoria</span></dt>
+        <dd>
+            <span>{{vm.probabilidad.categoria}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.probabilidad.valor">Valor</span></dt>
+        <dd>
+            <span>{{vm.probabilidad.valor}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.probabilidad.descripcion">Descripcion</span></dt>
+        <dd>
+            <span>{{vm.probabilidad.descripcion}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.probabilidad.rangoMayor">Rango Mayor</span></dt>
+        <dd>
+            <span>{{vm.probabilidad.rangoMayor}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.probabilidad.rangoMenor">Rango Menor</span></dt>
+        <dd>
+            <span>{{vm.probabilidad.rangoMenor}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.probabilidad.tablaProbabilidad">Tabla Probabilidad</span></dt>
+        <dd>
+            <a ui-sref="tabla-probabilidad-detail({id:vm.probabilidad.tablaProbabilidadId})">{{vm.probabilidad.tablaProbabilidadId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="probabilidad-detail.edit({id:vm.probabilidad.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

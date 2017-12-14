@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "tablaProbabilidad",
+            "otherEntityName": "tablaProbabilidad",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rangoMayor",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "rangoMenor",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20171214233736",
+    "entityTableName": "probabilidad",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

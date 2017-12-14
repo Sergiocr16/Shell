@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "proyecto",
+            "otherEntityName": "proyecto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "medida",
+            "otherEntityName": "medida",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "riesgo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "probabilidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "impacto",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233735",
+    "entityTableName": "riesgo",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

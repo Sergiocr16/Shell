@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "tablaImpacto",
+            "otherEntityName": "tablaImpacto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233732",
+    "entityTableName": "impacto",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

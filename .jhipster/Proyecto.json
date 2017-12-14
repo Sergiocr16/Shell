@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lanzamiento",
+            "otherEntityName": "lanzamiento",
+            "otherEntityRelationshipName": "proyecto"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "riesgo",
+            "otherEntityName": "riesgo",
+            "otherEntityRelationshipName": "proyecto"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rangoRiesgo",
+            "otherEntityName": "rangoRiesgo",
+            "otherEntityRelationshipName": "proyecto"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tablaImpactoId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tablaProbabilidadId",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171214233728",
+    "entityTableName": "proyecto",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

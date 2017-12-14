@@ -1,0 +1,103 @@
+entity Proyecto {
+	nombre String,
+    tablaImpactoId Integer,
+    tablaProbabilidadId Integer,
+}
+entity Sprint {
+    numero String,
+    status String,
+    puntosPlaneados Integer,
+    puntosRealizados Integer,
+    spi String,
+    cpi String,
+    sv String,
+    vac String,
+    pe String,
+    bac String,
+    pv String,
+    ac String,
+    etc String,
+    eac String,
+    cv String,
+    vc String,
+    ev String,
+    comentario String,
+}
+
+entity Lanzamiento {
+  numero String,
+}
+entity TablaImpacto {
+	nombre String
+}
+
+entity Impacto {
+    categoria String,
+	valor Integer,
+    descripcion String
+}
+
+entity TablaProbabilidad {
+	nombre String
+}
+
+entity Medida{
+  contencion String,
+  mitigacion String
+}
+
+entity Riesgo {
+	description String,
+    probabilidad Integer,
+    impacto String,
+}
+
+entity Probabilidad {
+    categoria String,
+	valor Integer,
+    descripcion String,
+    rangoMayor Double,
+    rangoMenor Double,
+}
+
+entity RangoRiesgo {
+	nombre String
+    color String,
+    probabilidad Integer,
+    impacto Integer,
+}
+
+relationship OneToMany {
+	TablaProbabilidad{impacto} to Probabilidad
+}
+relationship OneToOne {
+	Riesgo{medida} to Medida
+}
+
+relationship OneToMany {
+	TablaImpacto{impacto} to Impacto
+}
+relationship OneToMany {
+	Lanzamiento{sprint} to Sprint
+}
+
+relationship OneToMany {
+	Proyecto{lanzamiento} to Lanzamiento
+}
+
+relationship OneToMany {
+	Proyecto{riesgo} to Riesgo
+}
+
+relationship OneToMany {
+	Proyecto{rangoRiesgo} to RangoRiesgo
+}
+
+//paginacion para todas las entidades de angular
+paginate * with pager
+//Agrega dto a todas las entidades
+dto * with mapstruct
+
+// Crea los servicios sin interfaces.
+service all with serviceClass //serviceImpl
+

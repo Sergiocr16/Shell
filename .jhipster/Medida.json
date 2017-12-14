@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "contencion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mitigacion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233734",
+    "entityTableName": "medida",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

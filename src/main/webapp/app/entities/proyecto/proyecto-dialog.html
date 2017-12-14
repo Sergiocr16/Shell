@@ -1,0 +1,44 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProyectoLabel" data-translate="shellApp.proyecto.home.createOrEditLabel">Create or edit a Proyecto</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.proyecto.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.proyecto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shellApp.proyecto.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.proyecto.nombre"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shellApp.proyecto.tablaImpactoId" for="field_tablaImpactoId">Tabla Impacto Id</label>
+            <input type="number" class="form-control" name="tablaImpactoId" id="field_tablaImpactoId"
+                    ng-model="vm.proyecto.tablaImpactoId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shellApp.proyecto.tablaProbabilidadId" for="field_tablaProbabilidadId">Tabla Probabilidad Id</label>
+            <input type="number" class="form-control" name="tablaProbabilidadId" id="field_tablaProbabilidadId"
+                    ng-model="vm.proyecto.tablaProbabilidadId"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+{
+    "shellApp": {
+        "lanzamiento" : {
+            "home": {
+                "title": "Lanzamientos",
+                "createLabel": "Crear nuevo Lanzamiento",
+                "createOrEditLabel": "Crear o editar Lanzamiento"
+            },
+            "created": "Un nuevo Lanzamiento ha sido creado con el identificador {{ param }}",
+            "updated": "Un Lanzamiento ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Lanzamiento ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Lanzamiento {{ id }}?"
+            },
+            "detail": {
+                "title": "Lanzamiento"
+            },
+            "numero": "Numero",
+            "proyecto": "Proyecto",
+            "sprint": "Sprint"
+        }
+    }
+}

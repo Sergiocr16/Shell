@@ -1,0 +1,22 @@
+{
+    "shellApp": {
+        "tablaProbabilidad" : {
+            "home": {
+                "title": "Tabla Probabilidads",
+                "createLabel": "Create a new Tabla Probabilidad",
+                "createOrEditLabel": "Create or edit a Tabla Probabilidad"
+            },
+            "created": "A new Tabla Probabilidad is created with identifier {{ param }}",
+            "updated": "A Tabla Probabilidad is updated with identifier {{ param }}",
+            "deleted": "A Tabla Probabilidad is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tabla Probabilidad {{ id }}?"
+            },
+            "detail": {
+                "title": "Tabla Probabilidad"
+            },
+            "nombre": "Nombre",
+            "impacto": "Impacto"
+        }
+    }
+}

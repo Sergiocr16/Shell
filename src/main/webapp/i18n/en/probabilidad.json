@@ -1,0 +1,26 @@
+{
+    "shellApp": {
+        "probabilidad" : {
+            "home": {
+                "title": "Probabilidads",
+                "createLabel": "Create a new Probabilidad",
+                "createOrEditLabel": "Create or edit a Probabilidad"
+            },
+            "created": "A new Probabilidad is created with identifier {{ param }}",
+            "updated": "A Probabilidad is updated with identifier {{ param }}",
+            "deleted": "A Probabilidad is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Probabilidad {{ id }}?"
+            },
+            "detail": {
+                "title": "Probabilidad"
+            },
+            "categoria": "Categoria",
+            "valor": "Valor",
+            "descripcion": "Descripcion",
+            "rangoMayor": "Rango Mayor",
+            "rangoMenor": "Rango Menor",
+            "tablaProbabilidad": "Tabla Probabilidad"
+        }
+    }
+}

@@ -1,0 +1,95 @@
+
+<div>
+    <h2><span data-translate="shellApp.sprint.detail.title">Sprint</span> {{vm.sprint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shellApp.sprint.numero">Numero</span></dt>
+        <dd>
+            <span>{{vm.sprint.numero}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.status">Status</span></dt>
+        <dd>
+            <span>{{vm.sprint.status}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.puntosPlaneados">Puntos Planeados</span></dt>
+        <dd>
+            <span>{{vm.sprint.puntosPlaneados}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.puntosRealizados">Puntos Realizados</span></dt>
+        <dd>
+            <span>{{vm.sprint.puntosRealizados}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.spi">Spi</span></dt>
+        <dd>
+            <span>{{vm.sprint.spi}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.cpi">Cpi</span></dt>
+        <dd>
+            <span>{{vm.sprint.cpi}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.sv">Sv</span></dt>
+        <dd>
+            <span>{{vm.sprint.sv}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.vac">Vac</span></dt>
+        <dd>
+            <span>{{vm.sprint.vac}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.pe">Pe</span></dt>
+        <dd>
+            <span>{{vm.sprint.pe}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.bac">Bac</span></dt>
+        <dd>
+            <span>{{vm.sprint.bac}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.pv">Pv</span></dt>
+        <dd>
+            <span>{{vm.sprint.pv}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.ac">Ac</span></dt>
+        <dd>
+            <span>{{vm.sprint.ac}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.etc">Etc</span></dt>
+        <dd>
+            <span>{{vm.sprint.etc}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.eac">Eac</span></dt>
+        <dd>
+            <span>{{vm.sprint.eac}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.cv">Cv</span></dt>
+        <dd>
+            <span>{{vm.sprint.cv}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.vc">Vc</span></dt>
+        <dd>
+            <span>{{vm.sprint.vc}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.ev">Ev</span></dt>
+        <dd>
+            <span>{{vm.sprint.ev}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.comentario">Comentario</span></dt>
+        <dd>
+            <span>{{vm.sprint.comentario}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.sprint.lanzamiento">Lanzamiento</span></dt>
+        <dd>
+            <a ui-sref="lanzamiento-detail({id:vm.sprint.lanzamientoId})">{{vm.sprint.lanzamientoId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sprint-detail.edit({id:vm.sprint.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

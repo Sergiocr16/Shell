@@ -1,0 +1,39 @@
+{
+    "shellApp": {
+        "sprint" : {
+            "home": {
+                "title": "Sprints",
+                "createLabel": "Crear nuevo Sprint",
+                "createOrEditLabel": "Crear o editar Sprint"
+            },
+            "created": "Un nuevo Sprint ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sprint ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sprint ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sprint {{ id }}?"
+            },
+            "detail": {
+                "title": "Sprint"
+            },
+            "numero": "Numero",
+            "status": "Status",
+            "puntosPlaneados": "Puntos Planeados",
+            "puntosRealizados": "Puntos Realizados",
+            "spi": "Spi",
+            "cpi": "Cpi",
+            "sv": "Sv",
+            "vac": "Vac",
+            "pe": "Pe",
+            "bac": "Bac",
+            "pv": "Pv",
+            "ac": "Ac",
+            "etc": "Etc",
+            "eac": "Eac",
+            "cv": "Cv",
+            "vc": "Vc",
+            "ev": "Ev",
+            "comentario": "Comentario",
+            "lanzamiento": "Lanzamiento"
+        }
+    }
+}
