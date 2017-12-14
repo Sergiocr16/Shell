@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "impacto",
+            "otherEntityName": "impacto",
+            "otherEntityRelationshipName": "tablaImpacto"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233731",
+    "entityTableName": "tabla_impacto",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

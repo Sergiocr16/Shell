@@ -7,6 +7,16 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
+                "proyecto": "Proyecto",
+                "sprint": "Sprint",
+                "lanzamiento": "Lanzamiento",
+                "tablaImpacto": "Tabla Impacto",
+                "impacto": "Impacto",
+                "tablaProbabilidad": "Tabla Probabilidad",
+                "medida": "Medida",
+                "riesgo": "Riesgo",
+                "probabilidad": "Probabilidad",
+                "rangoRiesgo": "Rango Riesgo",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

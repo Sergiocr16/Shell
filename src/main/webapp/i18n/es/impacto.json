@@ -1,0 +1,24 @@
+{
+    "shellApp": {
+        "impacto" : {
+            "home": {
+                "title": "Impactos",
+                "createLabel": "Crear nuevo Impacto",
+                "createOrEditLabel": "Crear o editar Impacto"
+            },
+            "created": "Un nuevo Impacto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Impacto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Impacto ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Impacto {{ id }}?"
+            },
+            "detail": {
+                "title": "Impacto"
+            },
+            "categoria": "Categoria",
+            "valor": "Valor",
+            "descripcion": "Descripcion",
+            "tablaImpacto": "Tabla Impacto"
+        }
+    }
+}

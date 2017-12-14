@@ -1,0 +1,22 @@
+{
+    "shellApp": {
+        "tablaImpacto" : {
+            "home": {
+                "title": "Tabla Impactos",
+                "createLabel": "Crear nuevo Tabla Impacto",
+                "createOrEditLabel": "Crear o editar Tabla Impacto"
+            },
+            "created": "Un nuevo Tabla Impacto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tabla Impacto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tabla Impacto ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tabla Impacto {{ id }}?"
+            },
+            "detail": {
+                "title": "Tabla Impacto"
+            },
+            "nombre": "Nombre",
+            "impacto": "Impacto"
+        }
+    }
+}

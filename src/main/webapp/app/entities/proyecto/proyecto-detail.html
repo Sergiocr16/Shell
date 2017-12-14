@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="shellApp.proyecto.detail.title">Proyecto</span> {{vm.proyecto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shellApp.proyecto.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.proyecto.nombre}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.proyecto.tablaImpactoId">Tabla Impacto Id</span></dt>
+        <dd>
+            <span>{{vm.proyecto.tablaImpactoId}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.proyecto.tablaProbabilidadId">Tabla Probabilidad Id</span></dt>
+        <dd>
+            <span>{{vm.proyecto.tablaProbabilidadId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="proyecto-detail.edit({id:vm.proyecto.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

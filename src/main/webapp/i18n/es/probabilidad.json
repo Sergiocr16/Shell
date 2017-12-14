@@ -1,0 +1,26 @@
+{
+    "shellApp": {
+        "probabilidad" : {
+            "home": {
+                "title": "Probabilidads",
+                "createLabel": "Crear nuevo Probabilidad",
+                "createOrEditLabel": "Crear o editar Probabilidad"
+            },
+            "created": "Un nuevo Probabilidad ha sido creado con el identificador {{ param }}",
+            "updated": "Un Probabilidad ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Probabilidad ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Probabilidad {{ id }}?"
+            },
+            "detail": {
+                "title": "Probabilidad"
+            },
+            "categoria": "Categoria",
+            "valor": "Valor",
+            "descripcion": "Descripcion",
+            "rangoMayor": "Rango Mayor",
+            "rangoMenor": "Rango Menor",
+            "tablaProbabilidad": "Tabla Probabilidad"
+        }
+    }
+}

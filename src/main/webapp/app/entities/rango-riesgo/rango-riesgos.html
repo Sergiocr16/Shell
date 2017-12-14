@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="shellApp.rangoRiesgo.home.title">Rango Riesgos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="rango-riesgo.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="shellApp.rangoRiesgo.home.createLabel">
+                        Create new Rango Riesgo
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span data-translate="shellApp.rangoRiesgo.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="color"><span data-translate="shellApp.rangoRiesgo.color">Color</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probabilidad"><span data-translate="shellApp.rangoRiesgo.probabilidad">Probabilidad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impacto"><span data-translate="shellApp.rangoRiesgo.impacto">Impacto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="proyectoId"><span data-translate="shellApp.rangoRiesgo.proyecto">Proyecto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rangoRiesgo in vm.rangoRiesgos track by rangoRiesgo.id">
+                    <td><a ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})">{{rangoRiesgo.id}}</a></td>
+                    <td>{{rangoRiesgo.nombre}}</td>
+                    <td>{{rangoRiesgo.color}}</td>
+                    <td>{{rangoRiesgo.probabilidad}}</td>
+                    <td>{{rangoRiesgo.impacto}}</td>
+                    <td>
+                        <a ui-sref="proyecto-detail({id:rangoRiesgo.proyectoId})">{{rangoRiesgo.proyectoId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="rango-riesgo.edit({id:rangoRiesgo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="rango-riesgo.delete({id:rangoRiesgo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

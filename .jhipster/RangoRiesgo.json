@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "proyecto",
+            "otherEntityName": "proyecto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "probabilidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "impacto",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171214233737",
+    "entityTableName": "rango_riesgo",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

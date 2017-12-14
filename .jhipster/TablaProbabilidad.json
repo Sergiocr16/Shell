@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "impacto",
+            "otherEntityName": "probabilidad",
+            "otherEntityRelationshipName": "tablaProbabilidad"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233733",
+    "entityTableName": "tabla_probabilidad",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

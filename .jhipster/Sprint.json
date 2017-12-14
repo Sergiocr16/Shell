@@ -1,0 +1,90 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "lanzamiento",
+            "otherEntityName": "lanzamiento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "puntosPlaneados",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "puntosRealizados",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "spi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cpi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vac",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bac",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ac",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eac",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ev",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comentario",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233729",
+    "entityTableName": "sprint",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "proyecto",
+            "otherEntityName": "proyecto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sprint",
+            "otherEntityName": "sprint",
+            "otherEntityRelationshipName": "lanzamiento"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214233730",
+    "entityTableName": "lanzamiento",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass"
+}

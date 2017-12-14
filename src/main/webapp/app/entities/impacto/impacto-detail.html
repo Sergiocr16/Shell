@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="shellApp.impacto.detail.title">Impacto</span> {{vm.impacto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shellApp.impacto.categoria">Categoria</span></dt>
+        <dd>
+            <span>{{vm.impacto.categoria}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.impacto.valor">Valor</span></dt>
+        <dd>
+            <span>{{vm.impacto.valor}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.impacto.descripcion">Descripcion</span></dt>
+        <dd>
+            <span>{{vm.impacto.descripcion}}</span>
+        </dd>
+        <dt><span data-translate="shellApp.impacto.tablaImpacto">Tabla Impacto</span></dt>
+        <dd>
+            <a ui-sref="tabla-impacto-detail({id:vm.impacto.tablaImpactoId})">{{vm.impacto.tablaImpactoId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="impacto-detail.edit({id:vm.impacto.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,22 @@
+{
+    "shellApp": {
+        "medida" : {
+            "home": {
+                "title": "Medidas",
+                "createLabel": "Create a new Medida",
+                "createOrEditLabel": "Create or edit a Medida"
+            },
+            "created": "A new Medida is created with identifier {{ param }}",
+            "updated": "A Medida is updated with identifier {{ param }}",
+            "deleted": "A Medida is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Medida {{ id }}?"
+            },
+            "detail": {
+                "title": "Medida"
+            },
+            "contencion": "Contencion",
+            "mitigacion": "Mitigacion"
+        }
+    }
+}

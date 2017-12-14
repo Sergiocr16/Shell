@@ -1,0 +1,25 @@
+{
+    "shellApp": {
+        "rangoRiesgo" : {
+            "home": {
+                "title": "Rango Riesgos",
+                "createLabel": "Create a new Rango Riesgo",
+                "createOrEditLabel": "Create or edit a Rango Riesgo"
+            },
+            "created": "A new Rango Riesgo is created with identifier {{ param }}",
+            "updated": "A Rango Riesgo is updated with identifier {{ param }}",
+            "deleted": "A Rango Riesgo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rango Riesgo {{ id }}?"
+            },
+            "detail": {
+                "title": "Rango Riesgo"
+            },
+            "nombre": "Nombre",
+            "color": "Color",
+            "probabilidad": "Probabilidad",
+            "impacto": "Impacto",
+            "proyecto": "Proyecto"
+        }
+    }
+}
