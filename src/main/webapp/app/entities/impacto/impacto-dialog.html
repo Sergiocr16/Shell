@@ -34,7 +34,7 @@
 
         <div class="form-group">
             <label data-translate="shellApp.impacto.tablaImpacto" for="field_tablaImpacto">Tabla Impacto</label>
-            <select class="form-control" id="field_tablaImpacto" name="tablaImpacto" ng-model="vm.impacto.tablaImpactoId" ng-options="tablaImpacto.id as tablaImpacto.id for tablaImpacto in vm.tablaimpactos"            >
+            <select class="form-control" id="field_tablaImpacto" name="tablaImpacto" ng-model="vm.impacto.tablaImpactoId" ng-options="tablaImpacto.id as tablaImpacto.nombre for tablaImpacto in vm.tablaimpactos"            >
                 <option value=""></option>
             </select>
         </div>

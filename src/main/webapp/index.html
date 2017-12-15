@@ -25,15 +25,15 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
     <div class="container">
-        <div class="well" ui-view="content">
+        <div class="well col-lg-12" ui-view="content">
             <!-- Angular views -->
         </div>
 
         <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
+            <p>Shell powered by Lighthouse Software © 2017</p>
         </div>
     </div>
     <noscript>
@@ -157,6 +157,8 @@
     <script src="app/entities/medida/medida.state.js"></script>
     <script src="app/entities/medida/medida.service.js"></script>
     <script src="app/entities/medida/medida.controller.js"></script>
+    <script src="app/entities/manejo-riesgos/manejo-riesgos.state.js"></script>
+    <script src="app/entities/manejo-riesgos/manejo-riesgos.controller.js"></script>
     <script src="app/entities/lanzamiento/lanzamiento-dialog.controller.js"></script>
     <script src="app/entities/lanzamiento/lanzamiento-detail.controller.js"></script>
     <script src="app/entities/lanzamiento/lanzamiento-delete-dialog.controller.js"></script>

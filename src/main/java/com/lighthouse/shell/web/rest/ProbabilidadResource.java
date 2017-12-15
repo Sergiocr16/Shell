@@ -89,9 +89,9 @@ public class ProbabilidadResource {
      */
     @GetMapping("/probabilidads")
     @Timed
-    public ResponseEntity<List<ProbabilidadDTO>> getAllProbabilidads(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<ProbabilidadDTO>> getAllProbabilidads(@ApiParam Pageable pageable, Long tablaProbabilidadId) {
         log.debug("REST request to get a page of Probabilidads");
-        Page<ProbabilidadDTO> page = probabilidadService.findAll(pageable);
+        Page<ProbabilidadDTO> page = probabilidadService.findAll(pageable, tablaProbabilidadId);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/probabilidads");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

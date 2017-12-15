@@ -1,0 +1,176 @@
+<div>
+    <h2>Manejo de riesgos - {{vm.proyecto.nombre}}</h2>
+    <jhi-alert></jhi-alert>
+    <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-4 no-padding-left">-->
+                <!--<button class="btn btn-primary" ui-sref="riesgo.new" >-->
+                    <!--<span class="glyphicon glyphicon-plus"></span>-->
+                    <!--<span  data-translate="shellApp.riesgo.home.createLabel">-->
+                        <!--Create new Riesgo-->
+                    <!--</span>-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ng-click="vm.ocultar()">
+                    <span class="glyphicon glyphicon-eye"></span>
+                    <span ng-show="vm.mostrarTablas==false">
+                       Mostrar tablas y matriz
+                    </span>
+                    <span ng-show="vm.mostrarTablas==true">
+                       Ocultar tablas y matriz
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="col-lg-12" ng-show="vm.mostrarTablas==true">
+        <div class="col-lg-6">
+            <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                <thead>
+                <tr class="bg-danger">
+                    <th scope="col-3" colspan="3" class="text-center" style="background-color:#dc3545!important;color:white">Tabla de impacto</th>
+                </tr>
+                <tr class="bg-danger">
+                    <th scope="col" class="text-center">Categoría</th>
+                    <th scope="col" class="text-center">Descripción</th>
+                    <th scope="col" class="text-center">Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="impacto in vm.impactos" style="background-color:white">
+                    <td class="text-center"><b>{{impacto.categoria}}</b></td>
+                    <td>{{impacto.descripcion}}</td>
+                    <td>{{impacto.valor}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                <thead>
+                <tr class="bg-primary">
+                    <th scope="col-3" colspan="4" class="text-center">Tabla de probabilidades</th>
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col" class="text-center">Categoría</th>
+                    <th scope="col" class="text-center">Descripción</th>
+                    <th scope="col" class="text-center">Rango</th>
+                    <th scope="col" class="text-center">Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="probabilidad in vm.probabilidades" style="background-color:white">
+                    <td class="text-center"><b>{{probabilidad.categoria}}</b></td>
+                    <td>{{probabilidad.descripcion}}</td>
+                    <td>{{probabilidad.rangoMenor}}% a {{probabilidad.rangoMayor}}%</td>
+                    <td>{{probabilidad.valor}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-12">
+            <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                <thead>
+                <tr class="bg-success">
+                    <th scope="col-3" colspan="{{vm.impactos.length+3}}" class="text-center" style="background-color:#28a745!important;color:white">Matriz de probabilidad e impacto</th>
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col" class="text-center"></th>
+                    <th scope="col" class="text-center"></th>
+                    <th ng-repeat="impacto in vm.impactos" scope="col" class="text-center">{{impacto.valor}}</th>
+                    <!--<th scope="col" class="text-center">Descripción</th>-->
+                    <!--<th scope="col" class="text-center">Rango</th>-->
+                    <!--<th scope="col" class="text-center">Valor</th>-->
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col" class="text-center"></th>
+                    <th scope="col" class="text-center"></th>
+                    <th ng-repeat="impacto in vm.impactos" scope="col" class="text-center">{{impacto.categoria}}</th>
+                    <!--<th scope="col" class="text-center">Descripción</th>-->
+                    <!--<th scope="col" class="text-center">Rango</th>-->
+                    <!--<th scope="col" class="text-center">Valor</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="probabilidad in vm.probabilidades" style="background-color:white">
+                    <td class="text-center bg-success"><b>{{probabilidad.valor}}</b></td>
+                    <td class="text-center bg-success"><b>{{probabilidad.categoria}}</b></td>
+                    <td ng-repeat="impacto in vm.impactos" class="text-center">{{impacto.valor*probabilidad.valor}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="shellApp.riesgo.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probabilidad"><span data-translate="shellApp.riesgo.probabilidad">Probabilidad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impacto"><span data-translate="shellApp.riesgo.impacto">Impacto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="proyectoId"><span data-translate="shellApp.riesgo.proyecto">Proyecto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="medidaId"><span data-translate="shellApp.riesgo.medida">Medida</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="riesgo in vm.riesgos track by riesgo.id">
+                    <td><a ui-sref="riesgo-detail({id:riesgo.id})">{{riesgo.id}}</a></td>
+                    <td>{{riesgo.description}}</td>
+                    <td>{{riesgo.probabilidad}}</td>
+                    <td>{{riesgo.impacto}}</td>
+                    <td>
+                        <a ui-sref="proyecto-detail({id:riesgo.proyectoId})">{{riesgo.proyectoId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="medida-detail({id:riesgo.medidaId})">{{riesgo.medidaId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="riesgo-detail({id:riesgo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="riesgo.edit({id:riesgo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="riesgo.delete({id:riesgo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    <button type="submit"
+            ui-sref="proyecto-detail({id:vm.proyecto.id})"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <!--<button type="button" ui-sref="proyecto-detail({id:vm.proyecto.id})" class="btn btn-primary">-->
+        <!--<span class="glyphicon glyphicon-pencil"></span>-->
+        <!--<span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>-->
+    <!--</button>-->
+</div>

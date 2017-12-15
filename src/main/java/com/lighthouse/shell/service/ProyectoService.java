@@ -66,6 +66,7 @@ public class ProyectoService {
     public ProyectoDTO findOne(Long id) {
         log.debug("Request to get Proyecto : {}", id);
         Proyecto proyecto = proyectoRepository.findOne(id);
+        proyecto.setRiesgos(proyecto.getRiesgos());
         return proyectoMapper.toDto(proyecto);
     }
 

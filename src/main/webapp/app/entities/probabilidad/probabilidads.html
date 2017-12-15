@@ -22,8 +22,8 @@
                     <th jh-sort-by="categoria"><span data-translate="shellApp.probabilidad.categoria">Categoria</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="valor"><span data-translate="shellApp.probabilidad.valor">Valor</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="descripcion"><span data-translate="shellApp.probabilidad.descripcion">Descripcion</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="rangoMayor"><span data-translate="shellApp.probabilidad.rangoMayor">Rango Mayor</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="rangoMenor"><span data-translate="shellApp.probabilidad.rangoMenor">Rango Menor</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rangoMayor"><span data-translate="shellApp.probabilidad.rangoMayor">Rango Mayor</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="tablaProbabilidadId"><span data-translate="shellApp.probabilidad.tablaProbabilidad">Tabla Probabilidad</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -34,8 +34,9 @@
                     <td>{{probabilidad.categoria}}</td>
                     <td>{{probabilidad.valor}}</td>
                     <td>{{probabilidad.descripcion}}</td>
-                    <td>{{probabilidad.rangoMayor}}</td>
                     <td>{{probabilidad.rangoMenor}}</td>
+                    <td>{{probabilidad.rangoMayor}}</td>
+
                     <td>
                         <a ui-sref="tabla-probabilidad-detail({id:probabilidad.tablaProbabilidadId})">{{probabilidad.tablaProbabilidadId}}</a>
                     </td>

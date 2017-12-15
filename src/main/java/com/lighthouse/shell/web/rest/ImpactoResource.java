@@ -89,9 +89,9 @@ public class ImpactoResource {
      */
     @GetMapping("/impactos")
     @Timed
-    public ResponseEntity<List<ImpactoDTO>> getAllImpactos(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<ImpactoDTO>> getAllImpactos(@ApiParam Pageable pageable, Long tablaImpactoId) {
         log.debug("REST request to get a page of Impactos");
-        Page<ImpactoDTO> page = impactoService.findAll(pageable);
+        Page<ImpactoDTO> page = impactoService.findAll(pageable,tablaImpactoId);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/impactos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
