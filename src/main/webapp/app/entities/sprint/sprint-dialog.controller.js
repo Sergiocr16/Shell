@@ -26,6 +26,11 @@
         function save () {
             vm.isSaving = true;
             if (vm.sprint.id !== null) {
+                vm.sprint.vac = vm.sprint.bac - vm.sprint.eac;
+                vm.sprint.cv = vm.sprint.ev - vm.sprint.ac;
+                vm.sprint.sv = vm.sprint.ev - vm.sprint.pv;
+                vm.sprint.cpi = vm.sprint.ev / vm.sprint.ac;
+                vm.sprint.spi = vm.sprint.ev / vm.sprint.pv;
                 Sprint.update(vm.sprint, onSaveSuccess, onSaveError);
             } else {
             vm.sprint.lanzamientoId = $stateParams.idLanzamiento;

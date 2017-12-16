@@ -1,0 +1,175 @@
+<div>
+    <div class="col-md-10">
+        <h2 >Manejo de earned value del release {{vm.lanzamiento.numero}}</h2>
+    </div>
+    <jhi-alert class="col-md-12"></jhi-alert>
+    <div class="container-fluid">
+        <div class="row col-md-2">
+            <div class="col-xs-4 no-padding-left">
+
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()" ng-repeat="sprint in vm.sprints track by sprint.id">
+                <th jh-sort-by="numero"><span ></span></span></th>
+                <th jh-sort-by="numero"><span ></span>Sprint {{sprint.numero}}</span></th>
+
+            </tr>
+            </thead>
+            <tbody ng-repeat="sprint in vm.sprints track by sprint.id">
+
+            <tr>
+                <td>
+                    Total de días
+                </td>
+                <td>{{sprint.comentario}}</td>
+            </tr>
+            <tr>
+                <td>
+                   Días concluidos
+                </td>
+                <td>{{sprint.status}}</td>
+            </tr>
+            <tr>
+                <td>
+                   Puntos planeados
+                </td>
+                <td>
+                    {{sprint.puntosPlaneados}}
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Puntos realizados
+                </td>
+                <td>{{sprint.puntosRealizados}}</td>
+            </tr>
+            <tr>
+                <td>
+                    BAC
+                </td>
+                <td>
+                    {{sprint.bac}}
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    PV
+                </td>
+                <td>{{sprint.pv}}</td>
+            </tr>
+            <tr>
+                <td>
+                    EV
+                </td>
+                <td>{{sprint.ev}}</td>
+            </tr>
+            <tr>
+                <td>
+                   AC
+                </td>
+                <td>{{sprint.ac}}</td>
+            </tr>
+            <tr>
+                <td>
+                   SV
+                </td>
+                <td>{{sprint.sv}}</td>
+            </tr>
+            <tr>
+                <td>
+                    CV
+                </td>
+                <td>{{sprint.cv}}</td>
+            </tr>
+            <tr>
+                <td>
+                    SPI
+                </td>
+                <td>{{sprint.spi}}</td>
+
+            </tr>
+            <tr>
+                <td>
+                   CPI
+                </td>
+                <td>{{sprint.cpi}}</td>
+            </tr>
+            <tr>
+                <td>
+                   ETC
+                </td>
+                <td>{{sprint.etc}}</td>
+            </tr>
+            <tr>
+                <td>
+                    EAC
+                </td>
+                <td>{{sprint.eac}}</td>
+
+            </tr>
+            <tr>
+                <td>
+                   VAC
+                </td>
+                <td>{{sprint.vac}}</td>
+            </tr>
+            <tr>
+                <td>
+                    Status
+                </td>
+                <td>{{sprint.vac}}</td>
+            </tr>
+            <!--<tr ng-repeat="sprint in vm.sprints track by sprint.id">-->
+                <!--<td>{{sprint.numero}}</td>-->
+                <!--<td>{{sprint.status}}</td>-->
+                <!--<td>{{sprint.puntosPlaneados}}</td>-->
+
+
+                <!--&lt;!&ndash;<td>{{sprint.sv}}</td>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<td>{{sprint.pe}}</td>&ndash;&gt;-->
+
+
+                <!--<td>{{sprint.ac}}</td>-->
+
+
+                <!--&lt;!&ndash;<td>{{sprint.vc}}</td>&ndash;&gt;-->
+
+                <!--<td>{{sprint.comentario}}</td>-->
+                <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<a ui-sref="lanzamiento-detail({id:sprint.lanzamientoId})">{{sprint.lanzamientoId}}</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                <!--<td class="text-right">-->
+                    <!--<div class="btn-group flex-btn-group-container">-->
+
+                        <!--<button type="submit"-->
+                                <!--ui-sref="sprint.edit({id:sprint.id})"-->
+                                <!--class="btn btn-primary btn-sm">-->
+                            <!--<span class="glyphicon glyphicon-pencil"></span>-->
+                            <!--<span class="hidden-sm-down" > Editar status</span>-->
+                        <!--</button>-->
+                        <!--<button type="submit"-->
+                                <!--ui-sref="sprint.delete({id:sprint.id})"-->
+                                <!--class="btn btn-danger btn-sm">-->
+                            <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
+                            <!--<span class="hidden-sm-down" ></span>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+            </tbody>
+        </table>
+    </div>
+    <button type="submit"
+            ui-sref="sprint({idLanzamiento:vm.lanzamiento.id})"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -53,7 +53,51 @@
                     return $translate.refresh();
                 }]
             }
-        })
+        }).state('sprint-resume', {
+                    parent: 'entity',
+                    url: '/sprint/{idLanzamiento}',
+                    data: {
+                        authorities: ['ROLE_USER'],
+                        pageTitle: 'shellApp.sprint.home.title'
+                    },
+                    views: {
+                        'content@': {
+                            templateUrl: 'app/entities/sprint/sprint-resume.html',
+                            controller: 'SprintController',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    params: {
+                        page: {
+                            value: '1',
+                            squash: true
+                        },
+                        sort: {
+                            value: 'id,asc',
+                            squash: true
+                        },
+                        search: null
+                    },
+                    resolve: {
+                        pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                            return {
+                                page: PaginationUtil.parsePage($stateParams.page),
+                                sort: $stateParams.sort,
+                                predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                                ascending: PaginationUtil.parseAscending($stateParams.sort),
+                                search: $stateParams.search
+                            };
+                        }],
+                          entity: ['$stateParams', 'Lanzamiento', function($stateParams, Lanzamiento) {
+                                                              return Lanzamiento.get({id : $stateParams.idLanzamiento}).$promise;
+                                           }],
+                        translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                            $translatePartialLoader.addPart('sprint');
+                            $translatePartialLoader.addPart('global');
+                            return $translate.refresh();
+                        }]
+                    }
+                })
         .state('sprint-detail', {
             parent: 'sprint',
             url: '/sprint/{id}',

@@ -113,7 +113,7 @@
         })
         .state('lanzamiento.new', {
             parent: 'lanzamiento',
-            url: '/new',
+            url: '/new/{idProyecto}',
             data: {
                 authorities: ['ROLE_USER']
             },
