@@ -1,0 +1,22 @@
+{
+    "shellApp": {
+        "categoriaRangoRiesgo" : {
+            "home": {
+                "title": "Categoria Rango Riesgos",
+                "createLabel": "Crear nuevo Categoria Rango Riesgo",
+                "createOrEditLabel": "Crear o editar Categoria Rango Riesgo"
+            },
+            "created": "Un nuevo Categoria Rango Riesgo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Categoria Rango Riesgo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Categoria Rango Riesgo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Categoria Rango Riesgo {{ id }}?"
+            },
+            "detail": {
+                "title": "Categoria Rango Riesgo"
+            },
+            "nombre": "Nombre",
+            "color": "Color"
+        }
+    }
+}

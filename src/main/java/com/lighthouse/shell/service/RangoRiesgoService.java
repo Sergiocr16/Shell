@@ -7,9 +7,12 @@ import com.lighthouse.shell.service.mapper.RangoRiesgoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 /**
@@ -46,13 +49,13 @@ public class RangoRiesgoService {
     /**
      *  Get all the rangoRiesgos.
      *
-     *  @param pageable the pagination information
+
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<RangoRiesgoDTO> findAll(Pageable pageable, Long proyectoId) {
-        Page<RangoRiesgo> result = rangoRiesgoRepository.findByProyectoId(pageable, proyectoId);
-        return result.map(rangoRiesgo -> rangoRiesgoMapper.toDto(rangoRiesgo));
+    public Page<RangoRiesgoDTO> findAll(Long proyectoId) {
+        List<RangoRiesgo> result = rangoRiesgoRepository.findByProyectoId(proyectoId);
+        return new PageImpl<RangoRiesgo>(result).map(rangoRiesgo -> rangoRiesgoMapper.toDto(rangoRiesgo));
     }
 
     /**

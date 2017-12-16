@@ -5,9 +5,9 @@
         .module('shellApp')
         .controller('RiesgoDialogController', RiesgoDialogController);
 
-    RiesgoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Riesgo', 'Proyecto', 'Medida'];
+    RiesgoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Riesgo', 'Proyecto', 'Medida','$state'];
 
-    function RiesgoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Riesgo, Proyecto, Medida) {
+    function RiesgoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Riesgo, Proyecto, Medida,$state) {
         var vm = this;
 
         vm.riesgo = entity;
@@ -29,6 +29,7 @@
         });
 
         function clear () {
+        $state.go('manejo-riesgo({id:$stateParams.id})')
             $uibModalInstance.dismiss('cancel');
         }
 

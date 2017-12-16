@@ -19,21 +19,25 @@
     <!--</dl>-->
     <div class="col-lg-12" style="margin-bottom:20px">
         <div class="col-lg-6">
-           <button class="btn btn-lg btn-danger col-lg-12" ui-sref="lanzamiento({id:vm.proyecto.id})">Earned value</button>
+
+           <button class="btn btn-lg btn-danger col-lg-12" ui-sref="lanzamiento({id:vm.proyecto.id})"><span class="glyphicon glyphicon-fire"></span>Earned value</button>
         </div>
+
         <div class="col-lg-6">
-            <button class="btn btn-lg btn-success col-lg-12" ui-sref="manejo-riesgos({id:vm.proyecto.id})">Manejo de riesgos</button>
+
+
+            <button class="btn btn-lg btn-primary col-lg-12" ui-sref="manejo-riesgos({id:vm.proyecto.id})"> <span class="glyphicon glyphicon-king"></span>&nbsp;Manejo de riesgos</button>
         </div>
     </div>
 
     <button type="submit"
-            ui-sref="{{ vm.previousState }}"
+            ui-sref="proyecto"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="proyecto-detail.edit({id:vm.proyecto.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
-    </button>
+    <!--<button type="button" ui-sref="proyecto-detail.edit({id:vm.proyecto.id})" class="btn btn-primary">-->
+        <!--<span class="glyphicon glyphicon-pencil"></span>-->
+        <!--<span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>-->
+    <!--</button>-->
 </div>

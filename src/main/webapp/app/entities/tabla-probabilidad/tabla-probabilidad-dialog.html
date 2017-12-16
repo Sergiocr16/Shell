@@ -1,13 +1,13 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate >
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myTablaProbabilidadLabel" data-translate="shellApp.tablaProbabilidad.home.createOrEditLabel">Create or edit a Tabla Probabilidad</h4>
+        <h4 class="modal-title" id="myTablaProbabilidadLabel">Crear tabla de probabilidad</h4>
     </div>
-    <div class="modal-body">
-        <jhi-alert-error></jhi-alert-error>
+    <div class="modal-body col-lg-12">
+        <!--<jhi-alert-error></jhi-alert-error>-->
         <div class="form-group" ng-show="vm.tablaProbabilidad.id">
             <label for="id" data-translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
@@ -15,18 +15,64 @@
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="shellApp.tablaProbabilidad.nombre" for="field_nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="field_nombre"
+            <input type="text" class="form-control" name="nombre" id="field_nombre" required
                     ng-model="vm.tablaProbabilidad.nombre"
                     />
         </div>
+        <div class="col-lg-12">
+            <button class="btn btn-primary" ng-click="vm.agregarProbabilidad()">
+                <span class="glyphicon glyphicon-plus"></span>
+                <span>
+                        Agregar probabilidad
+                </span>
+            </button>
+        </div>
+        <div class="col-lg-12">
+            <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                <thead>
+                <tr class="bg-primary">
+                    <th scope="col-3" colspan="5" class="text-center">Tabla de probabilidades</th>
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col" class="text-center">Categoría</th>
+                    <th scope="col" class="text-center">Descripción</th>
+                    <th scope="col" class="text-center">Rango menor</th>
+                    <th scope="col" class="text-center">Rango mayor</th>
+                    <th scope="col" class="text-center">Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="probabilidad in vm.probabilidades" style="background-color:white">
+                    <td class="text-center">
+                        <input type="text" class="form-control" ng-model="probabilidad.categoria" required>
+                    </td>
+                    <td>
+                        <textarea row="3" type="text" class="form-control" ng-model="probabilidad.descripcion" required></textarea>
 
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="probabilidad.rangoMenor" required>
+
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="probabilidad.rangoMayor" required>
+
+                    </td>
+                    <td>
+                        <input type="number" class="form-control" min="0" ng-model="probabilidad.valor" required>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span>Cancelar</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        <button type="button" ng-click="vm.save()" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span>Aceptar</span>
         </button>
     </div>
 </form>

@@ -108,8 +108,8 @@
                 });
             }]
         })
-        .state('riesgo.new', {
-            parent: 'riesgo',
+        .state('manejo-riesgos.new', {
+            parent: 'manejo-riesgos',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
@@ -132,9 +132,9 @@
                         }
                     }
                 }).result.then(function() {
-                    $state.go('riesgo', null, { reload: 'riesgo' });
+                    $state.go('manejo-riesgo({id:$stateParams.id})', null, { reload: 'manejo-riesgo' });
                 }, function() {
-                    $state.go('riesgo');
+                    $state.go('manejo-riesgo({id:$stateParams.id})');
                 });
             }]
         })
@@ -163,8 +163,8 @@
                 });
             }]
         })
-        .state('riesgo.delete', {
-            parent: 'riesgo',
+        .state('manejo-riesgos.delete', {
+            parent: 'manejo-riesgos',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
@@ -177,13 +177,13 @@
                     size: 'md',
                     resolve: {
                         entity: ['Riesgo', function(Riesgo) {
-                            return Riesgo.get({id : $stateParams.id}).$promise;
+                            return Riesgo.get({id : $stateParams.idRiesgo}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('riesgo', null, { reload: 'riesgo' });
+
                 }, function() {
-                    $state.go('^');
+
                 });
             }]
         });

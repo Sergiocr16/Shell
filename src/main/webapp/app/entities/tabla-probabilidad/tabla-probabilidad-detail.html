@@ -3,21 +3,43 @@
     <h2><span data-translate="shellApp.tablaProbabilidad.detail.title">Tabla Probabilidad</span> {{vm.tablaProbabilidad.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="shellApp.tablaProbabilidad.nombre">Nombre</span></dt>
-        <dd>
-            <span>{{vm.tablaProbabilidad.nombre}}</span>
-        </dd>
-    </dl>
-
+    <!--<dl class="dl-horizontal jh-entity-details">-->
+        <!--<dt><span data-translate="shellApp.tablaProbabilidad.nombre">Nombre</span></dt>-->
+        <!--<dd>-->
+            <!--<span>{{vm.tablaProbabilidad.nombre}}</span>-->
+        <!--</dd>-->
+    <!--</dl>-->
+    <div class="col-lg-12">
+        <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+            <thead>
+            <tr class="bg-primary">
+                <th scope="col-3" colspan="4" class="text-center">Tabla de probabilidades</th>
+            </tr>
+            <tr class="bg-info">
+                <th scope="col" class="text-center">Categoría</th>
+                <th scope="col" class="text-center">Descripción</th>
+                <th scope="col" class="text-center">Rango</th>
+                <th scope="col" class="text-center">Valor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="probabilidad in vm.probabilidades| orderBy: 'valor'" style="background-color:white">
+                <td class="text-center"><b>{{probabilidad.categoria}}</b></td>
+                <td>{{probabilidad.descripcion}}</td>
+                <td>{{probabilidad.rangoMenor}}% a {{probabilidad.rangoMayor}}%</td>
+                <td>{{probabilidad.valor}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="tabla-probabilidad-detail.edit({id:vm.tablaProbabilidad.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
-    </button>
+    <!--<button type="button" ui-sref="tabla-probabilidad-detail.edit({id:vm.tablaProbabilidad.id})" class="btn btn-primary">-->
+        <!--<span class="glyphicon glyphicon-pencil"></span>-->
+        <!--<span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>-->
+    <!--</button>-->
 </div>
