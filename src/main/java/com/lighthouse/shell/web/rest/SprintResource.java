@@ -89,9 +89,9 @@ public class SprintResource {
      */
     @GetMapping("/sprints")
     @Timed
-    public ResponseEntity<List<SprintDTO>> getAllSprints(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<SprintDTO>> getAllSprints(@ApiParam Pageable pageable, Long lanzamientoId) {
         log.debug("REST request to get a page of Sprints");
-        Page<SprintDTO> page = sprintService.findAll(pageable);
+        Page<SprintDTO> page = sprintService.findAll(pageable,lanzamientoId);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sprints");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -11,7 +11,7 @@
         $stateProvider
         .state('lanzamiento', {
             parent: 'entity',
-            url: '/lanzamiento?page&sort&search',
+            url: '/lanzamiento/{id}',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'shellApp.lanzamiento.home.title'
@@ -44,6 +44,9 @@
                         search: $stateParams.search
                     };
                 }],
+                   entity: ['$stateParams', 'Proyecto', function($stateParams, Proyecto) {
+                                      return Proyecto.get({id : $stateParams.id}).$promise;
+                   }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('lanzamiento');
                     $translatePartialLoader.addPart('global');

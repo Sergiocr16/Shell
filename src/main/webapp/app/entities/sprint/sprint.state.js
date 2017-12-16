@@ -11,7 +11,7 @@
         $stateProvider
         .state('sprint', {
             parent: 'entity',
-            url: '/sprint?page&sort&search',
+            url: '/sprint/{idLanzamiento}',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'shellApp.sprint.home.title'
@@ -44,6 +44,9 @@
                         search: $stateParams.search
                     };
                 }],
+                  entity: ['$stateParams', 'Lanzamiento', function($stateParams, Lanzamiento) {
+                                                      return Lanzamiento.get({id : $stateParams.idLanzamiento}).$promise;
+                                   }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('sprint');
                     $translatePartialLoader.addPart('global');
@@ -110,7 +113,7 @@
         })
         .state('sprint.new', {
             parent: 'sprint',
-            url: '/new',
+            url: '/new/{idLanzamiento}',
             data: {
                 authorities: ['ROLE_USER']
             },

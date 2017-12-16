@@ -1,8 +1,10 @@
 <div>
-    <h2 data-translate="shellApp.lanzamiento.home.title">Lanzamientos</h2>
+    <div class="col-md-9">
+     <h2 data-translate="shellApp.lanzamiento.home.title">Lanzamientos</h2>
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row col-md-3">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="lanzamiento.new" >
                     <span class="glyphicon glyphicon-plus"></span>
@@ -14,51 +16,35 @@
         </div>
     </div>
     <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="numero"><span data-translate="shellApp.lanzamiento.numero">Numero</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="proyectoId"><span data-translate="shellApp.lanzamiento.proyecto">Proyecto</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="lanzamiento in vm.lanzamientos track by lanzamiento.id">
-                    <td><a ui-sref="lanzamiento-detail({id:lanzamiento.id})">{{lanzamiento.id}}</a></td>
-                    <td>{{lanzamiento.numero}}</td>
-                    <td>
-                        <a ui-sref="proyecto-detail({id:lanzamiento.proyectoId})">{{lanzamiento.proyectoId}}</a>
-                    </td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="lanzamiento-detail({id:lanzamiento.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="lanzamiento.edit({id:lanzamiento.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="lanzamiento.delete({id:lanzamiento.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div class="col-lg-12">
+        <div class="col-lg-4" style="background-color:white;padding:5px;border-radius:5px;margin-right:10px;" ng-repeat="lanzamiento in vm.lanzamientos track by lanzamiento.id">
+            <h3 class="text-center">Release {{lanzamiento.numero}}</h3>
+            <h3 class="text-center">
+                <div class="btn-group col-lg-12">
+                    <button type="submit"
+                            ui-sref="sprint({idLanzamiento:lanzamiento.id})"
+                            class="btn btn-info btn-sm col-lg-8">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <span class="hidden-sm-down">Ver sprints</span>
+                    </button>
+                    <!--<button type="submit"-->
+                    <!--ui-sref="proyecto.edit({id:proyecto.id})"-->
+                    <!--class="btn btn-primary btn-sm">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span>-->
+                    <!--<span class="hidden-sm-down" data-translate="entity.action.edit"></span>-->
+                    <!--</button>-->
+                    <button type="submit"
+                            ui-sref="lanzamiento.delete({id:lanzamiento.id})"
+                            class="btn btn-danger btn-sm col-lg-4">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                        <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                    </button>
+                </div>
+            </h3>
+        </div>
+
     </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
-    </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+
+
 </div>

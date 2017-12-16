@@ -5,9 +5,9 @@
         .module('shellApp')
         .controller('LanzamientoController', LanzamientoController);
 
-    LanzamientoController.$inject = ['$state', 'Lanzamiento', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    LanzamientoController.$inject = ['entity','$state', 'Lanzamiento', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function LanzamientoController($state, Lanzamiento, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function LanzamientoController(entity,$state, Lanzamiento, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -16,11 +16,13 @@
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
         vm.itemsPerPage = paginationConstants.itemsPerPage;
-
+        vm.proyecto = entity;
         loadAll();
 
         function loadAll () {
+        console.log(vm.proyecto.id)
             Lanzamiento.query({
+                proyectoId: vm.proyecto.id,
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()

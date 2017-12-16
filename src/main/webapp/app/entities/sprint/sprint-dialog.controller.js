@@ -28,6 +28,7 @@
             if (vm.sprint.id !== null) {
                 Sprint.update(vm.sprint, onSaveSuccess, onSaveError);
             } else {
+            vm.sprint.lanzamientoId = $stateParams.idLanzamiento;
                 Sprint.save(vm.sprint, onSaveSuccess, onSaveError);
             }
         }
