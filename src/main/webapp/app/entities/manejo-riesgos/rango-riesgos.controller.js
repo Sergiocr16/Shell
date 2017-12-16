@@ -5,14 +5,26 @@
         .module('shellApp')
         .controller('RangoRiesgosController', RangoRiesgosController);
 
-    RangoRiesgosController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Probabilidad', 'RangoRiesgo','Impacto'];
+    RangoRiesgosController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Probabilidad', 'RangoRiesgo','Impacto','CategoriaRangoRiesgo'];
 
-    function RangoRiesgosController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Probabilidad, RangoRiesgo, Impacto) {
+    function RangoRiesgosController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Probabilidad, RangoRiesgo, Impacto,CategoriaRangoRiesgo) {
         var vm = this;
 
         vm.proyecto = entity;
         vm.clear = clear;
+        vm.rangoRiesgos = [];
         vm.save = save;
+//         vm.riesgos = [{id:1,nombre:'Bajo',color:'#28a745'},{id:2,nombre:'Medio',color:'#ffc107'},{id:3,nombre:'Alto',color:'#dc3545'}]
+      vm.cambiarColor = function(rangoRiesgo,riesgo){
+       angular.forEach(vm.riesgos,function(riesgo,i){
+       console.log(riesgo.nombre)
+       console.log("EL NOMBRE" + rangoRiesgo.nombre)
+        if(riesgo.nombre == rangoRiesgo.nombre){
+        rangoRiesgo.color = riesgo.color;
+        }
+       })
+
+      }
         vm.loadAll = function() {
             RangoRiesgo.query({
 
@@ -26,17 +38,24 @@
                 return result;
             }
             function onSuccess(data, headers) {
+             CategoriaRangoRiesgo.query(function(result) {
+                            vm.riesgos = result;
+                            vm.searchQuery = null;
+                        });
                 vm.totalItems = headers('X-Total-Count');
                 vm.hayRangos = vm.totalItems;
                 vm.getrangoRiesgos = data;
-                vm.rangoRiesgos = [];
+
                  angular.forEach(vm.getrangoRiesgos,function(rangoRiesgo,i){
 
                   rangoRiesgo.valor = rangoRiesgo.impacto*rangoRiesgo.probabilidad;
                   vm.rangoRiesgos.push(rangoRiesgo)
 
                  })
-                 console.log(vm.rangoRiesgos)
+                  if(vm.rangoRiesgos.length==0){
+                                                vm.crearRangoRiesgos();
+                                              }
+
             }
             function onError(error) {
 
@@ -88,16 +107,22 @@
                             vm.queryCount = vm.totalItems;
                             vm.probabilidades = data;
                             vm.probabilidades = vm.probabilidades.reverse();
-                             vm.loadAll();
-                             if(vm.hayRangos==0){
-                             vm.crearRangoRiesgos();
-                             }
+ vm.loadAll();
+
                         }
                         function onError(error) {
                             AlertService.error(error.data.message);
                         }
             }
-        vm.save = function (rangoRiesgo) {
+
+         function save(){
+         angular.forEach(vm.rangoRiesgos,function(rangoRiesgo,i){
+
+         vm.saveRangoRiesgo(rangoRiesgo);
+         })
+
+         }
+        vm.saveRangoRiesgo = function (rangoRiesgo) {
             vm.isSaving = true;
             if (rangoRiesgo.id !== null) {
                 RangoRiesgo.update(rangoRiesgo, onSaveSuccess, onSaveError);
@@ -107,8 +132,8 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('shellApp:rangoRiesgoUpdate', result);
-            $uibModalInstance.close(result);
+
+
             vm.isSaving = false;
         }
 
@@ -116,6 +141,7 @@
             vm.isSaving = false;
         }
         vm.crearRangoRiesgos = function(){
+
           angular.forEach(vm.impactos,function(impacto,i){
            angular.forEach(vm.probabilidades,function(probabilidad,i){
             var rangoRiesgo = {};
@@ -124,10 +150,10 @@
             rangoRiesgo.proyectoId = vm.proyecto.id;
             rangoRiesgo.impactoDescription = impacto.categoria;
             rangoRiesgo.probabilidadDescription = probabilidad.categoria;
-            vm.save(rangoRiesgo);
+            vm.saveRangoRiesgo(rangoRiesgo);
            })
           })
-           loadAll();
+           vm.loadAll();
         }
 
         $timeout(function (){
@@ -138,14 +164,14 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function save () {
-            vm.isSaving = true;
-            if (vm.probabilidad.id !== null) {
-                Probabilidad.update(vm.probabilidad, onSaveSuccess, onSaveError);
-            } else {
-                Probabilidad.save(vm.probabilidad, onSaveSuccess, onSaveError);
-            }
-        }
+//        function save () {
+//            vm.isSaving = true;
+//            if (vm.probabilidad.id !== null) {
+//                Probabilidad.update(vm.probabilidad, onSaveSuccess, onSaveError);
+//            } else {
+//                Probabilidad.save(vm.probabilidad, onSaveSuccess, onSaveError);
+//            }
+//        }
 
         function onSaveSuccess (result) {
             $scope.$emit('shellApp:probabilidadUpdate', result);

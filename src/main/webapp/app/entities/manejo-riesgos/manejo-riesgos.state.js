@@ -54,6 +54,31 @@
                 }]
             }
         })
+        .state('manejo-riesgos.calculo-valor-riesgos', {
+            parent: 'manejo-riesgos',
+            url: '/calculo-valor-riesgos',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/manejo-riesgos/calculo-valor-riesgos.html',
+                    controller: 'CalculoValorController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Proyecto', function(Proyecto) {
+                            return Proyecto.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('^', {}, { reload: true });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
+          })
         .state('manejo-riesgos.rango-riesgos', {
             parent: 'manejo-riesgos',
             url: '/rango-riesgos',
@@ -73,7 +98,7 @@
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('^', {}, { reload: false });
+                    $state.go('^', {}, { reload: true });
                 }, function() {
                     $state.go('^');
                 });

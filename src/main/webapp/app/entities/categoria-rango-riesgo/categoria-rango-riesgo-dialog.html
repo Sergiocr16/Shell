@@ -1,0 +1,36 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCategoriaRangoRiesgoLabel" >Crear o editar Categoría de Rango de riesgos</h4>
+    </div>
+    <div class="modal-body col-lg-12">
+
+        <!--<div class="form-group" class="col-lg-12" ng-show="vm.categoriaRangoRiesgo.id">-->
+            <!--<label for="id" data-translate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                    <!--ng-model="vm.categoriaRangoRiesgo.id" readonly />-->
+        <!--</div>-->
+        <div class="form-group col-lg-6">
+            <label class="control-label" data-translate="shellApp.categoriaRangoRiesgo.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.categoriaRangoRiesgo.nombre"
+                    required/>
+        </div>
+        <div class="form-group col-lg-6">
+            <label class="control-label" data-translate="shellApp.categoriaRangoRiesgo.color">Color</label>
+            <ngjs-color-picker selected-color="vm.categoriaRangoRiesgo.color" options="vm.customOptions"></ngjs-color-picker>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span>Aceptar</span>
+        </button>
+    </div>
+</form>

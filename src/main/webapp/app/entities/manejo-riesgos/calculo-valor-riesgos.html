@@ -1,0 +1,41 @@
+
+<form name="editForm" role="form" novalidate >
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title text-center" id="myProbabilidadLabel">{{vm.proyecto.nombre}}</h4>
+    </div>
+    <div class="modal-body">
+        <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+            <thead>
+            <tr class="bg-primary">
+                <th scope="col-3" colspan="6" class="text-center">Cálculo del valor de los riesgos</th>
+            </tr>
+            <tr class="bg-danger">
+                <th scope="col" class="text-center">Riesgo</th>
+                <th scope="col" class="text-center">Probabilidad</th>
+                <th scope="col" class="text-center">Impacto</th>
+                <th scope="col" class="text-center">Valor</th>
+                <th scope="col" class="text-center">Nivel</th>
+                <th scope="col" class="text-center">Color</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="riesgo in vm.riesgos | orderBy: 'valor'" style="background-color:white">
+                <td>{{riesgo.description}}</td>
+                <td class="text-center">{{vm.verProbabilidad(riesgo.probabilidad)}}</td>
+                <td class="text-center">{{vm.verImpacto(riesgo.impacto)}}</td>
+                <td class="text-center">{{riesgo.valor}}</td>
+                <td class="text-center"><b>{{riesgo.nivel.nombre}}</b></td>
+                <td style="background-color:{{riesgo.nivel.color}}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+
+    </div>
+</form>

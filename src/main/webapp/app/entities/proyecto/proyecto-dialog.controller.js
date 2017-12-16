@@ -90,7 +90,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('shellApp:proyectoUpdate', result);
-           $state.go("proyecto-detail({id:"+result.id+"})")
+           $state.go("proyecto")
             vm.isSaving = false;
         }
 
