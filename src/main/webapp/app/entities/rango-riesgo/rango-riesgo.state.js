@@ -128,6 +128,8 @@
                                 color: null,
                                 probabilidad: null,
                                 impacto: null,
+                                impactoDescription: null,
+                                probabilidadDescription: null,
                                 id: null
                             };
                         }

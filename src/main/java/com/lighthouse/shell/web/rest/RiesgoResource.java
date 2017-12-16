@@ -89,9 +89,9 @@ public class RiesgoResource {
      */
     @GetMapping("/riesgos")
     @Timed
-    public ResponseEntity<List<RiesgoDTO>> getAllRiesgos(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<RiesgoDTO>> getAllRiesgos(@ApiParam Pageable pageable, Long proyectoId) {
         log.debug("REST request to get a page of Riesgos");
-        Page<RiesgoDTO> page = riesgoService.findAll(pageable);
+        Page<RiesgoDTO> page = riesgoService.findAll(pageable, proyectoId);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/riesgos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

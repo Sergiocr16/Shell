@@ -67,7 +67,7 @@ class RangoRiesgoGatlingTest extends Simulation {
             .exec(http("Create new rangoRiesgo")
             .post("/api/rango-riesgos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "nombre":"SAMPLE_TEXT", "color":"SAMPLE_TEXT", "probabilidad":"0", "impacto":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "nombre":"SAMPLE_TEXT", "color":"SAMPLE_TEXT", "probabilidad":"0", "impacto":"0", "impactoDescription":"SAMPLE_TEXT", "probabilidadDescription":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_rangoRiesgo_url"))).exitHereIfFailed
             .pause(10)

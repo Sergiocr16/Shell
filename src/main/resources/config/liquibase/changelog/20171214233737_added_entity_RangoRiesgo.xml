@@ -38,6 +38,14 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="impacto_description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="probabilidad_description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="proyecto_id" type="bigint">
                 <constraints nullable="true" />
             </column>

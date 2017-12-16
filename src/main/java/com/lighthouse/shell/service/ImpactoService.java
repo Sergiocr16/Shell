@@ -50,10 +50,9 @@ public class ImpactoService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<ImpactoDTO> findAll(Pageable pageable) {
-        log.debug("Request to get all Impactos");
-        return impactoRepository.findAll(pageable)
-            .map(impactoMapper::toDto);
+    public Page<ImpactoDTO> findAll(Pageable pageable, Long  tablaImpactoId) {
+        Page<Impacto> result = impactoRepository.findByTablaImpactoId(pageable, tablaImpactoId);
+        return result.map(impacto -> impactoMapper.toDto(impacto));
     }
 
     /**

@@ -109,34 +109,18 @@
             }]
         })
         .state('proyecto.new', {
-            parent: 'proyecto',
+            parent: 'entity',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/proyecto/proyecto-dialog.html',
+           views: {
+                'content@': {
+                     templateUrl: 'app/entities/proyecto/proyecto-dialog.html',
                     controller: 'ProyectoDialogController',
                     controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                nombre: null,
-                                tablaImpactoId: null,
-                                tablaProbabilidadId: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('proyecto', null, { reload: 'proyecto' });
-                }, function() {
-                    $state.go('proyecto');
-                });
-            }]
+                }
+            },
         })
         .state('proyecto.edit', {
             parent: 'proyecto',

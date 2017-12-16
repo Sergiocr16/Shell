@@ -50,10 +50,9 @@ public class ProbabilidadService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<ProbabilidadDTO> findAll(Pageable pageable) {
-        log.debug("Request to get all Probabilidads");
-        return probabilidadRepository.findAll(pageable)
-            .map(probabilidadMapper::toDto);
+    public Page<ProbabilidadDTO> findAll(Pageable pageable, Long tablaProbabilidadId) {
+        Page<Probabilidad> result = probabilidadRepository.findByTablaProbabilidadId(pageable, tablaProbabilidadId);
+        return result.map(probabilidad -> probabilidadMapper.toDto(probabilidad));
     }
 
     /**

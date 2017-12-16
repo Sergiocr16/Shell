@@ -50,10 +50,10 @@ public class RiesgoService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<RiesgoDTO> findAll(Pageable pageable) {
+    public Page<RiesgoDTO> findAll(Pageable pageable,Long proyectoId) {
         log.debug("Request to get all Riesgos");
-        return riesgoRepository.findAll(pageable)
-            .map(riesgoMapper::toDto);
+        Page<Riesgo> result = riesgoRepository.findByProyectoId(pageable, proyectoId);
+        return result.map(riesgo -> riesgoMapper.toDto(riesgo));
     }
 
     /**

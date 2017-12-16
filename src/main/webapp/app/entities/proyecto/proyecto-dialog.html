@@ -1,44 +1,102 @@
 
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
-
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myProyectoLabel" data-translate="shellApp.proyecto.home.createOrEditLabel">Create or edit a Proyecto</h4>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"-->
+                <!--ng-click="vm.clear()">&times;</button>-->
+        <h4 class="modal-title" id="myProyectoLabel">Crear Proyecto</h4>
     </div>
-    <div class="modal-body">
-        <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.proyecto.id">
-            <label for="id" data-translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.proyecto.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.proyecto.nombre" for="field_nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="field_nombre"
+    <div class="modal-body col-lg-12">
+        <!--<jhi-alert-error></jhi-alert-error>-->
+        <!--<div class="form-group" ng-show="vm.proyecto.id">-->
+            <!--<label for="id" data-translate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                    <!--ng-model="vm.proyecto.id" readonly />-->
+        <!--</div>-->
+        <div class="form-group col-lg-12">
+            <label class="control-label" for="field_nombre">Nombre</label>
+            <input required type="text" class="form-control" name="nombre" id="field_nombre"
                     ng-model="vm.proyecto.nombre"
                     />
         </div>
+
+            <h4 class="modal-title">Manejo de riesgos</h4>
+
         <div class="form-group">
-            <label class="control-label" data-translate="shellApp.proyecto.tablaImpactoId" for="field_tablaImpactoId">Tabla Impacto Id</label>
-            <input type="number" class="form-control" name="tablaImpactoId" id="field_tablaImpactoId"
-                    ng-model="vm.proyecto.tablaImpactoId"
-                    />
+            <label for="field_tablaImpacto" style="margin-top:10px">Seleccione la tabla de impactos que utilizará para el manejo de riesgos del proyecto</label>
+            <select required class="form-control" id="field_tablaImpacto" name="tablaImpacto" ng-change="vm.showTablaImpacto()" ng-model="vm.proyecto.tablaImpactoId" ng-options="tablaImpacto.id as tablaImpacto.nombre for tablaImpacto in vm.tablaimpactos"            >
+                <option value=""></option>
+            </select>
+            <div class="col-lg-12" ng-show="vm.proyecto.tablaImpactoId!=undefined">
+                <div class="col-lg-8 col-lg-offset-2">
+                <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                    <thead>
+                    <tr class="bg-danger">
+                        <th scope="col-3" colspan="3" class="text-center" style="background-color:#dc3545!important;color:white">Tabla de impacto</th>
+                    </tr>
+                    <tr class="bg-danger">
+                        <th scope="col" class="text-center">Categoría</th>
+                        <th scope="col" class="text-center">Descripción</th>
+                        <th scope="col" class="text-center">Valor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="impacto in vm.impactos" style="background-color:white">
+                        <td class="text-center"><b>{{impacto.categoria}}</b></td>
+                        <td>{{impacto.descripcion}}</td>
+                        <td>{{impacto.valor}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="shellApp.proyecto.tablaProbabilidadId" for="field_tablaProbabilidadId">Tabla Probabilidad Id</label>
-            <input type="number" class="form-control" name="tablaProbabilidadId" id="field_tablaProbabilidadId"
-                    ng-model="vm.proyecto.tablaProbabilidadId"
-                    />
+            <label for="field_tablaImpacto" style="margin-top:10px">Seleccione la tabla de probabilidades que utilizará para el manejo de riesgos del proyecto</label>
+            <select class="form-control" id="field_tablaProbabilidad" name="tablaProbabilidad" ng-change="vm.showTablaProbabilidad()" ng-model="vm.proyecto.tablaProbabilidadId" ng-options="tablaProbabilidad.id as tablaProbabilidad.nombre for tablaProbabilidad in vm.tablaprobabilidades">
+                <option value=""></option>
+            </select>
+            <div class="col-lg-12" ng-show="vm.proyecto.tablaProbabilidadId!=undefined">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <table class="table table-sm table-striped table-bordered" style="margin-top:10px">
+                        <thead>
+                        <tr class="bg-primary">
+                            <th scope="col-3" colspan="4" class="text-center">Tabla de probabilidades</th>
+                        </tr>
+                        <tr class="bg-info">
+                            <th scope="col" class="text-center">Categoría</th>
+                            <th scope="col" class="text-center">Descripción</th>
+                            <th scope="col" class="text-center">Rango</th>
+                            <th scope="col" class="text-center">Valor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="probabilidad in vm.probabilidades" style="background-color:white">
+                            <td class="text-center"><b>{{probabilidad.categoria}}</b></td>
+                            <td>{{probabilidad.descripcion}}</td>
+                            <td>{{probabilidad.rangoMenor}}% a {{probabilidad.rangoMayor}}%</td>
+                            <td>{{probabilidad.valor}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
+
+        <!--<div class="form-group">-->
+            <!--<label class="control-label"  for="field_tablaProbabilidadId">Seleccione la tabla de impactos que utilizará para el manejo de riesgos del proyecto</label>-->
+            <!--<input type="number" class="form-control" name="tablaProbabilidadId" id="field_tablaProbabilidadId"-->
+                    <!--ng-model="vm.proyecto.tablaProbabilidadId"-->
+                    <!--/>-->
+        <!--</div>-->
 
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span>Cancelar</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            <span>Crear proyecto</span>
         </button>
     </div>
 </form>
