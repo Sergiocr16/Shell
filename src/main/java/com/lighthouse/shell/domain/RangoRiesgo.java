@@ -30,6 +30,12 @@ public class RangoRiesgo implements Serializable {
     @Column(name = "impacto")
     private Integer impacto;
 
+    @Column(name = "impacto_description")
+    private String impactoDescription;
+
+    @Column(name = "probabilidad_description")
+    private String probabilidadDescription;
+
     @ManyToOne
     private Proyecto proyecto;
 
@@ -93,6 +99,32 @@ public class RangoRiesgo implements Serializable {
         this.impacto = impacto;
     }
 
+    public String getImpactoDescription() {
+        return impactoDescription;
+    }
+
+    public RangoRiesgo impactoDescription(String impactoDescription) {
+        this.impactoDescription = impactoDescription;
+        return this;
+    }
+
+    public void setImpactoDescription(String impactoDescription) {
+        this.impactoDescription = impactoDescription;
+    }
+
+    public String getProbabilidadDescription() {
+        return probabilidadDescription;
+    }
+
+    public RangoRiesgo probabilidadDescription(String probabilidadDescription) {
+        this.probabilidadDescription = probabilidadDescription;
+        return this;
+    }
+
+    public void setProbabilidadDescription(String probabilidadDescription) {
+        this.probabilidadDescription = probabilidadDescription;
+    }
+
     public Proyecto getProyecto() {
         return proyecto;
     }
@@ -134,6 +166,8 @@ public class RangoRiesgo implements Serializable {
             ", color='" + getColor() + "'" +
             ", probabilidad='" + getProbabilidad() + "'" +
             ", impacto='" + getImpacto() + "'" +
+            ", impactoDescription='" + getImpactoDescription() + "'" +
+            ", probabilidadDescription='" + getProbabilidadDescription() + "'" +
             "}";
     }
 }

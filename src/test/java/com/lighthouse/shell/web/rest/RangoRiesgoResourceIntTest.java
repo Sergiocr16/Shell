@@ -52,6 +52,12 @@ public class RangoRiesgoResourceIntTest {
     private static final Integer DEFAULT_IMPACTO = 1;
     private static final Integer UPDATED_IMPACTO = 2;
 
+    private static final String DEFAULT_IMPACTO_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_IMPACTO_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PROBABILIDAD_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_PROBABILIDAD_DESCRIPTION = "BBBBBBBBBB";
+
     @Autowired
     private RangoRiesgoRepository rangoRiesgoRepository;
 
@@ -98,7 +104,9 @@ public class RangoRiesgoResourceIntTest {
             .nombre(DEFAULT_NOMBRE)
             .color(DEFAULT_COLOR)
             .probabilidad(DEFAULT_PROBABILIDAD)
-            .impacto(DEFAULT_IMPACTO);
+            .impacto(DEFAULT_IMPACTO)
+            .impactoDescription(DEFAULT_IMPACTO_DESCRIPTION)
+            .probabilidadDescription(DEFAULT_PROBABILIDAD_DESCRIPTION);
         return rangoRiesgo;
     }
 
@@ -127,6 +135,8 @@ public class RangoRiesgoResourceIntTest {
         assertThat(testRangoRiesgo.getColor()).isEqualTo(DEFAULT_COLOR);
         assertThat(testRangoRiesgo.getProbabilidad()).isEqualTo(DEFAULT_PROBABILIDAD);
         assertThat(testRangoRiesgo.getImpacto()).isEqualTo(DEFAULT_IMPACTO);
+        assertThat(testRangoRiesgo.getImpactoDescription()).isEqualTo(DEFAULT_IMPACTO_DESCRIPTION);
+        assertThat(testRangoRiesgo.getProbabilidadDescription()).isEqualTo(DEFAULT_PROBABILIDAD_DESCRIPTION);
     }
 
     @Test
@@ -163,7 +173,9 @@ public class RangoRiesgoResourceIntTest {
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
             .andExpect(jsonPath("$.[*].color").value(hasItem(DEFAULT_COLOR.toString())))
             .andExpect(jsonPath("$.[*].probabilidad").value(hasItem(DEFAULT_PROBABILIDAD)))
-            .andExpect(jsonPath("$.[*].impacto").value(hasItem(DEFAULT_IMPACTO)));
+            .andExpect(jsonPath("$.[*].impacto").value(hasItem(DEFAULT_IMPACTO)))
+            .andExpect(jsonPath("$.[*].impactoDescription").value(hasItem(DEFAULT_IMPACTO_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].probabilidadDescription").value(hasItem(DEFAULT_PROBABILIDAD_DESCRIPTION.toString())));
     }
 
     @Test
@@ -180,7 +192,9 @@ public class RangoRiesgoResourceIntTest {
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
             .andExpect(jsonPath("$.color").value(DEFAULT_COLOR.toString()))
             .andExpect(jsonPath("$.probabilidad").value(DEFAULT_PROBABILIDAD))
-            .andExpect(jsonPath("$.impacto").value(DEFAULT_IMPACTO));
+            .andExpect(jsonPath("$.impacto").value(DEFAULT_IMPACTO))
+            .andExpect(jsonPath("$.impactoDescription").value(DEFAULT_IMPACTO_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.probabilidadDescription").value(DEFAULT_PROBABILIDAD_DESCRIPTION.toString()));
     }
 
     @Test
@@ -204,7 +218,9 @@ public class RangoRiesgoResourceIntTest {
             .nombre(UPDATED_NOMBRE)
             .color(UPDATED_COLOR)
             .probabilidad(UPDATED_PROBABILIDAD)
-            .impacto(UPDATED_IMPACTO);
+            .impacto(UPDATED_IMPACTO)
+            .impactoDescription(UPDATED_IMPACTO_DESCRIPTION)
+            .probabilidadDescription(UPDATED_PROBABILIDAD_DESCRIPTION);
         RangoRiesgoDTO rangoRiesgoDTO = rangoRiesgoMapper.toDto(updatedRangoRiesgo);
 
         restRangoRiesgoMockMvc.perform(put("/api/rango-riesgos")
@@ -220,6 +236,8 @@ public class RangoRiesgoResourceIntTest {
         assertThat(testRangoRiesgo.getColor()).isEqualTo(UPDATED_COLOR);
         assertThat(testRangoRiesgo.getProbabilidad()).isEqualTo(UPDATED_PROBABILIDAD);
         assertThat(testRangoRiesgo.getImpacto()).isEqualTo(UPDATED_IMPACTO);
+        assertThat(testRangoRiesgo.getImpactoDescription()).isEqualTo(UPDATED_IMPACTO_DESCRIPTION);
+        assertThat(testRangoRiesgo.getProbabilidadDescription()).isEqualTo(UPDATED_PROBABILIDAD_DESCRIPTION);
     }
 
     @Test

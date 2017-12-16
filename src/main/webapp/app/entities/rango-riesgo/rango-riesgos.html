@@ -23,17 +23,21 @@
                     <th jh-sort-by="color"><span data-translate="shellApp.rangoRiesgo.color">Color</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="probabilidad"><span data-translate="shellApp.rangoRiesgo.probabilidad">Probabilidad</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="impacto"><span data-translate="shellApp.rangoRiesgo.impacto">Impacto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impactoDescription"><span data-translate="shellApp.rangoRiesgo.impactoDescription">Impacto Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probabilidadDescription"><span data-translate="shellApp.rangoRiesgo.probabilidadDescription">Probabilidad Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="proyectoId"><span data-translate="shellApp.rangoRiesgo.proyecto">Proyecto</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="rangoRiesgo in vm.rangoRiesgos track by rangoRiesgo.id">
+                <tr ng-repeat="rangoRiesgo in vm.rangoRiesgos track by rangoRiesgo.id | orderBy: 'valor'" >
                     <td><a ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})">{{rangoRiesgo.id}}</a></td>
                     <td>{{rangoRiesgo.nombre}}</td>
                     <td>{{rangoRiesgo.color}}</td>
                     <td>{{rangoRiesgo.probabilidad}}</td>
                     <td>{{rangoRiesgo.impacto}}</td>
+                    <td>{{rangoRiesgo.impactoDescription}}</td>
+                    <td>{{rangoRiesgo.probabilidadDescription}}</td>
                     <td>
                         <a ui-sref="proyecto-detail({id:rangoRiesgo.proyectoId})">{{rangoRiesgo.proyectoId}}</a>
                     </td>

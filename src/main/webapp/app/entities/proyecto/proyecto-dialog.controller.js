@@ -16,6 +16,9 @@
         vm.rangoriesgos = RangoRiesgo.query();
         vm.tablaimpactos = TablaImpacto.query();
         vm.tablaprobabilidades = TablaProbabilidad.query();
+
+
+
         console.log(vm.tablaprobabilidades)
         vm.proyecto = {};
 

@@ -62,7 +62,7 @@
                             vm.queryCount = vm.totalItems;
                             vm.probabilidades = data;
                             vm.probabilidades = vm.probabilidades.reverse();
-                             vm.calcularValores();
+                            vm.calcularValores();
 
                         }
                         function onError(error) {

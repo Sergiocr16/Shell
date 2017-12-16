@@ -24,11 +24,19 @@
         {
             "fieldName": "impacto",
             "fieldType": "Integer"
+        },
+        {
+            "fieldName": "impactoDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "probabilidadDescription",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20171214233737",
-    "entityTableName": "rango_riesgo",
     "dto": "mapstruct",
-    "pagination": "pager",
-    "service": "serviceClass"
+    "service": "serviceClass",
+    "entityTableName": "rango_riesgo",
+    "pagination": "pager"
 }

@@ -21,6 +21,10 @@ public class RangoRiesgoDTO implements Serializable {
 
     private Integer impacto;
 
+    private String impactoDescription;
+
+    private String probabilidadDescription;
+
     private Long proyectoId;
 
     public Long getId() {
@@ -63,6 +67,22 @@ public class RangoRiesgoDTO implements Serializable {
         this.impacto = impacto;
     }
 
+    public String getImpactoDescription() {
+        return impactoDescription;
+    }
+
+    public void setImpactoDescription(String impactoDescription) {
+        this.impactoDescription = impactoDescription;
+    }
+
+    public String getProbabilidadDescription() {
+        return probabilidadDescription;
+    }
+
+    public void setProbabilidadDescription(String probabilidadDescription) {
+        this.probabilidadDescription = probabilidadDescription;
+    }
+
     public Long getProyectoId() {
         return proyectoId;
     }
@@ -100,6 +120,8 @@ public class RangoRiesgoDTO implements Serializable {
             ", color='" + getColor() + "'" +
             ", probabilidad='" + getProbabilidad() + "'" +
             ", impacto='" + getImpacto() + "'" +
+            ", impactoDescription='" + getImpactoDescription() + "'" +
+            ", probabilidadDescription='" + getProbabilidadDescription() + "'" +
             "}";
     }
 }

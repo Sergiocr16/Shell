@@ -54,6 +54,31 @@
                 }]
             }
         })
+        .state('manejo-riesgos.rango-riesgos', {
+            parent: 'manejo-riesgos',
+            url: '/rango-riesgos',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/manejo-riesgos/rango-riesgos.html',
+                    controller: 'RangoRiesgosController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Proyecto', function(Proyecto) {
+                            return Proyecto.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('^', {}, { reload: false });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
+          })
     }
 
 })();
