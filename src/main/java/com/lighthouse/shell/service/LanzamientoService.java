@@ -50,10 +50,9 @@ public class LanzamientoService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<LanzamientoDTO> findAll(Pageable pageable) {
-        log.debug("Request to get all Lanzamientos");
-        return lanzamientoRepository.findAll(pageable)
-            .map(lanzamientoMapper::toDto);
+    public Page<LanzamientoDTO> findAll(Pageable pageable,Long proyectoId) {
+        Page<Lanzamiento> result = lanzamientoRepository.findByProyectoId(pageable, proyectoId);
+        return result.map(lanzamiento -> lanzamientoMapper.toDto(lanzamiento));
     }
 
     /**

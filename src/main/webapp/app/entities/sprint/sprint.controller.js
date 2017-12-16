@@ -5,9 +5,9 @@
         .module('shellApp')
         .controller('SprintController', SprintController);
 
-    SprintController.$inject = ['$state', 'Sprint', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    SprintController.$inject = ['entity','$state', 'Sprint', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function SprintController($state, Sprint, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function SprintController(entity,$state, Sprint, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -16,11 +16,12 @@
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
         vm.itemsPerPage = paginationConstants.itemsPerPage;
-
+        vm.lanzamiento = entity;
         loadAll();
 
         function loadAll () {
             Sprint.query({
+                lanzamientoId: vm.lanzamiento.id,
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()

@@ -50,10 +50,9 @@ public class SprintService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<SprintDTO> findAll(Pageable pageable) {
-        log.debug("Request to get all Sprints");
-        return sprintRepository.findAll(pageable)
-            .map(sprintMapper::toDto);
+    public Page<SprintDTO> findAll(Pageable pageable,Long lanzamientoId) {
+        Page<Sprint> result = sprintRepository.findByLanzamientoId(pageable, lanzamientoId);
+        return result.map(lanzamiento -> sprintMapper.toDto(lanzamiento));
     }
 
     /**

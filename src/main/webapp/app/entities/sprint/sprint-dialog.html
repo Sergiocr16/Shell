@@ -4,130 +4,135 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="mySprintLabel" data-translate="shellApp.sprint.home.createOrEditLabel">Create or edit a Sprint</h4>
+        <h4 ng-show="vm.sprint.id!==null" class="modal-title" id="mySprintLabel">Editar status del sprint</h4>
+        <h4 ng-show="vm.sprint.id==null" class="modal-title" id="mySprintLabel">Crear nuevo sprint</h4>
     </div>
-    <div class="modal-body">
+    <div class="modal-body col-md-12">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.sprint.id">
-            <label for="id" data-translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.sprint.id" readonly />
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label"  for="field_numero">Numero de sprint</label>
+                <input ng-disabled="vm.sprint.id!==null" type="text" class="form-control" name="numero" id="field_numero"
+                       ng-model="vm.sprint.numero"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" data-translate="shellApp.sprint.puntosPlaneados" for="field_puntosPlaneados">Puntos Planeados</label>
+                <input ng-disabled="vm.sprint.id!==null" type="number" class="form-control" name="puntosPlaneados" id="field_puntosPlaneados"
+                       ng-model="vm.sprint.puntosPlaneados"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label" for="field_status">Número de día concluido</label>
+                <input type="text" class="form-control" name="status" id="field_status"
+                       ng-model="vm.sprint.status"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label"  for="field_eac">Estimado hasta la conclusión (EAC)</label>
+                <input type="text" class="form-control" name="eac" id="field_eac"
+                       ng-model="vm.sprint.eac"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label"  for="field_ev">Valor ganado (EV)</label>
+                <input type="text" class="form-control" name="ev" id="field_ev"
+                       ng-model="vm.sprint.ev"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label" for="field_pv">Valor planeado (PV)</label>
+                <input type="text" class="form-control" name="pv" id="field_pv"
+                       ng-model="vm.sprint.pv"
+                />
+            </div>
+
         </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.numero" for="field_numero">Numero</label>
-            <input type="text" class="form-control" name="numero" id="field_numero"
-                    ng-model="vm.sprint.numero"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.status" for="field_status">Status</label>
-            <input type="text" class="form-control" name="status" id="field_status"
-                    ng-model="vm.sprint.status"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.puntosPlaneados" for="field_puntosPlaneados">Puntos Planeados</label>
-            <input type="number" class="form-control" name="puntosPlaneados" id="field_puntosPlaneados"
-                    ng-model="vm.sprint.puntosPlaneados"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.puntosRealizados" for="field_puntosRealizados">Puntos Realizados</label>
-            <input type="number" class="form-control" name="puntosRealizados" id="field_puntosRealizados"
-                    ng-model="vm.sprint.puntosRealizados"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.spi" for="field_spi">Spi</label>
-            <input type="text" class="form-control" name="spi" id="field_spi"
-                    ng-model="vm.sprint.spi"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.cpi" for="field_cpi">Cpi</label>
-            <input type="text" class="form-control" name="cpi" id="field_cpi"
-                    ng-model="vm.sprint.cpi"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.sv" for="field_sv">Sv</label>
-            <input type="text" class="form-control" name="sv" id="field_sv"
-                    ng-model="vm.sprint.sv"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.vac" for="field_vac">Vac</label>
-            <input type="text" class="form-control" name="vac" id="field_vac"
-                    ng-model="vm.sprint.vac"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.pe" for="field_pe">Pe</label>
-            <input type="text" class="form-control" name="pe" id="field_pe"
-                    ng-model="vm.sprint.pe"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.bac" for="field_bac">Bac</label>
-            <input type="text" class="form-control" name="bac" id="field_bac"
-                    ng-model="vm.sprint.bac"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.pv" for="field_pv">Pv</label>
-            <input type="text" class="form-control" name="pv" id="field_pv"
-                    ng-model="vm.sprint.pv"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.ac" for="field_ac">Ac</label>
-            <input type="text" class="form-control" name="ac" id="field_ac"
-                    ng-model="vm.sprint.ac"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.etc" for="field_etc">Etc</label>
-            <input type="text" class="form-control" name="etc" id="field_etc"
-                    ng-model="vm.sprint.etc"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.eac" for="field_eac">Eac</label>
-            <input type="text" class="form-control" name="eac" id="field_eac"
-                    ng-model="vm.sprint.eac"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.cv" for="field_cv">Cv</label>
-            <input type="text" class="form-control" name="cv" id="field_cv"
-                    ng-model="vm.sprint.cv"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.vc" for="field_vc">Vc</label>
-            <input type="text" class="form-control" name="vc" id="field_vc"
-                    ng-model="vm.sprint.vc"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.ev" for="field_ev">Ev</label>
-            <input type="text" class="form-control" name="ev" id="field_ev"
-                    ng-model="vm.sprint.ev"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="shellApp.sprint.comentario" for="field_comentario">Comentario</label>
-            <input type="text" class="form-control" name="comentario" id="field_comentario"
-                    ng-model="vm.sprint.comentario"
-                    />
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="field_bac">Presupuesto total del proyecto (BAC)</label>
+                <input ng-disabled="vm.sprint.id!==null" type="text" class="form-control" name="bac" id="field_bac" placeholder="Escribir valor en dolares"
+                       ng-model="vm.sprint.bac"
+                />
+            </div>
+            <div class="form-group" >
+                <label class="control-label"  for="field_comentario">Días totales del sprint</label>
+                <input ng-disabled="vm.sprint.id!==null" type="text" class="form-control" name="comentario" id="field_comentario"
+                       ng-model="vm.sprint.comentario"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label" for="field_etc">Estimación de coste necesario (ETC)</label>
+                <input type="text" class="form-control" name="etc" id="field_etc"
+                       ng-model="vm.sprint.etc"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label" for="field_ac">Costo actual (AC)</label>
+                <input type="text" class="form-control" name="ac" id="field_ac"
+                       ng-model="vm.sprint.ac"
+                />
+            </div>
+            <div class="form-group" ng-show="vm.sprint.id!==null">
+                <label class="control-label" data-translate="shellApp.sprint.puntosRealizados" for="field_puntosRealizados">Puntos Realizados</label>
+                <input type="number" class="form-control" name="puntosRealizados" id="field_puntosRealizados"
+                       ng-model="vm.sprint.puntosRealizados"
+                />
+            </div>
+
         </div>
 
-        <div class="form-group">
-            <label data-translate="shellApp.sprint.lanzamiento" for="field_lanzamiento">Lanzamiento</label>
-            <select class="form-control" id="field_lanzamiento" name="lanzamiento" ng-model="vm.sprint.lanzamientoId" ng-options="lanzamiento.id as lanzamiento.id for lanzamiento in vm.lanzamientos"            >
-                <option value=""></option>
-            </select>
-        </div>
+
+
+
+
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.spi" for="field_spi">Spi</label>-->
+            <!--<input type="text" class="form-control" name="spi" id="field_spi"-->
+                    <!--ng-model="vm.sprint.spi"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.cpi" for="field_cpi">Cpi</label>-->
+            <!--<input type="text" class="form-control" name="cpi" id="field_cpi"-->
+                    <!--ng-model="vm.sprint.cpi"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.sv" for="field_sv">Sv</label>-->
+            <!--<input type="text" class="form-control" name="sv" id="field_sv"-->
+                    <!--ng-model="vm.sprint.sv"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.vac" for="field_vac">Vac</label>-->
+            <!--<input type="text" class="form-control" name="vac" id="field_vac"-->
+                    <!--ng-model="vm.sprint.vac"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.pe" for="field_pe">Pe</label>-->
+            <!--<input type="text" class="form-control" name="pe" id="field_pe"-->
+                    <!--ng-model="vm.sprint.pe"-->
+                    <!--/>-->
+        <!--</div>-->
+
+
+
+
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.cv" for="field_cv">Cv</label>-->
+            <!--<input type="text" class="form-control" name="cv" id="field_cv"-->
+                    <!--ng-model="vm.sprint.cv"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="vm.sprint.id!==null">-->
+            <!--<label class="control-label" data-translate="shellApp.sprint.vc" for="field_vc">Vc</label>-->
+            <!--<input type="text" class="form-control" name="vc" id="field_vc"-->
+                    <!--ng-model="vm.sprint.vc"-->
+                    <!--/>-->
+        <!--</div>-->
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

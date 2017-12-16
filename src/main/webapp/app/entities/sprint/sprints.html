@@ -1,13 +1,28 @@
 <div>
-    <h2 data-translate="shellApp.sprint.home.title">Sprints</h2>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="sprint.new" >
+    <jhi-alert class="col-md-12"></jhi-alert>
+    <div class="col-md-8 no-padding">
+
+    <h2 >Sprints del release {{vm.lanzamiento.numero}}</h2>
+    </div>
+
+    <div class="container-fluid no-padding">
+        <div class="row col-md-2 no-padding">
+            <div class="col-xs-4 ">
+                <button class="btn btn-success" ui-sref="sprint.new({idLanzamiento: vm.lanzamiento.id})" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="shellApp.sprint.home.createLabel">
-                        Create new Sprint
+                    <span>
+                        Crear sprint
+                    </span>
+                </button>
+
+            </div>
+        </div>
+        <div class="row col-md-2 no-padding">
+            <div class="col-xs-4 no-padding">
+                <button class="btn btn-primary" ui-sref="sprint-resume({idLanzamiento: vm.lanzamiento.id})" >
+
+                    <span  >
+                        Ver manejo de earned value
                     </span>
                 </button>
             </div>
@@ -18,72 +33,65 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="numero"><span data-translate="shellApp.sprint.numero">Numero</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span data-translate="shellApp.sprint.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="puntosPlaneados"><span data-translate="shellApp.sprint.puntosPlaneados">Puntos Planeados</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="puntosRealizados"><span data-translate="shellApp.sprint.puntosRealizados">Puntos Realizados</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="spi"><span data-translate="shellApp.sprint.spi">Spi</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cpi"><span data-translate="shellApp.sprint.cpi">Cpi</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="sv"><span data-translate="shellApp.sprint.sv">Sv</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="vac"><span data-translate="shellApp.sprint.vac">Vac</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="pe"><span data-translate="shellApp.sprint.pe">Pe</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bac"><span data-translate="shellApp.sprint.bac">Bac</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="pv"><span data-translate="shellApp.sprint.pv">Pv</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="ac"><span data-translate="shellApp.sprint.ac">Ac</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="etc"><span data-translate="shellApp.sprint.etc">Etc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="eac"><span data-translate="shellApp.sprint.eac">Eac</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cv"><span data-translate="shellApp.sprint.cv">Cv</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="vc"><span data-translate="shellApp.sprint.vc">Vc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="ev"><span data-translate="shellApp.sprint.ev">Ev</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="comentario"><span data-translate="shellApp.sprint.comentario">Comentario</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="lanzamientoId"><span data-translate="shellApp.sprint.lanzamiento">Lanzamiento</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numero"><span data-translate="shellApp.sprint.numero">Numero</span> </span></th>
+                    <th jh-sort-by="status"><span >Días concluídos</span></span></th>
+                    <th jh-sort-by="puntosPlaneados"><span data-translate="shellApp.sprint.puntosPlaneados">Puntos Planeados</span></span></th>
+                    <th jh-sort-by="puntosRealizados"><span data-translate="shellApp.sprint.puntosRealizados">Puntos Realizados</span> </span></th>
+                    <!--<th jh-sort-by="spi"><span data-translate="shellApp.sprint.spi">Spi</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="cpi"><span data-translate="shellApp.sprint.cpi">Cpi</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="sv"><span data-translate="shellApp.sprint.sv">Sv</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="vac"><span data-translate="shellApp.sprint.vac">Vac</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="pe"><span data-translate="shellApp.sprint.pe">Pe</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th jh-sort-by="bac">BAC</span> </span></th>
+                    <th jh-sort-by="pv">Valor planeado</span></span></th>
+                    <th jh-sort-by="ac">Costo actual</span> </span></th>
+                    <!--<th jh-sort-by="etc"><span data-translate="shellApp.sprint.etc">Etc</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="eac"><span data-translate="shellApp.sprint.eac">Eac</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="cv"><span data-translate="shellApp.sprint.cv">Cv</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="vc"><span data-translate="shellApp.sprint.vc">Vc</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th jh-sort-by="ev">Valor ganado</span> </span></th>
+                    <th jh-sort-by="comentario"><span >Días totales</span> </span></th>
+                    <!--<th jh-sort-by="lanzamientoId"><span data-translate="shellApp.sprint.lanzamiento">Lanzamiento</span> <span class="glyphicon glyphicon-sort"></span></th>-->
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="sprint in vm.sprints track by sprint.id">
-                    <td><a ui-sref="sprint-detail({id:sprint.id})">{{sprint.id}}</a></td>
                     <td>{{sprint.numero}}</td>
                     <td>{{sprint.status}}</td>
                     <td>{{sprint.puntosPlaneados}}</td>
                     <td>{{sprint.puntosRealizados}}</td>
-                    <td>{{sprint.spi}}</td>
-                    <td>{{sprint.cpi}}</td>
-                    <td>{{sprint.sv}}</td>
-                    <td>{{sprint.vac}}</td>
-                    <td>{{sprint.pe}}</td>
+                    <!--<td>{{sprint.spi}}</td>-->
+                    <!--<td>{{sprint.cpi}}</td>-->
+                    <!--<td>{{sprint.sv}}</td>-->
+                    <!--<td>{{sprint.vac}}</td>-->
+                    <!--<td>{{sprint.pe}}</td>-->
                     <td>{{sprint.bac}}</td>
                     <td>{{sprint.pv}}</td>
                     <td>{{sprint.ac}}</td>
-                    <td>{{sprint.etc}}</td>
-                    <td>{{sprint.eac}}</td>
-                    <td>{{sprint.cv}}</td>
-                    <td>{{sprint.vc}}</td>
+                    <!--<td>{{sprint.etc}}</td>-->
+                    <!--<td>{{sprint.eac}}</td>-->
+                    <!--<td>{{sprint.cv}}</td>-->
+                    <!--<td>{{sprint.vc}}</td>-->
                     <td>{{sprint.ev}}</td>
                     <td>{{sprint.comentario}}</td>
-                    <td>
-                        <a ui-sref="lanzamiento-detail({id:sprint.lanzamientoId})">{{sprint.lanzamientoId}}</a>
-                    </td>
+                    <!--<td>-->
+                        <!--<a ui-sref="lanzamiento-detail({id:sprint.lanzamientoId})">{{sprint.lanzamientoId}}</a>-->
+                    <!--</td>-->
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="sprint-detail({id:sprint.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
+
                             <button type="submit"
                                     ui-sref="sprint.edit({id:sprint.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                                <span class="hidden-sm-down" > Editar status</span>
                             </button>
                             <button type="submit"
                                     ui-sref="sprint.delete({id:sprint.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                                <span class="hidden-sm-down" ></span>
                             </button>
                         </div>
                     </td>
@@ -91,8 +99,5 @@
             </tbody>
         </table>
     </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
-    </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+
 </div>

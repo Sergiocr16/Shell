@@ -89,9 +89,9 @@ public class LanzamientoResource {
      */
     @GetMapping("/lanzamientos")
     @Timed
-    public ResponseEntity<List<LanzamientoDTO>> getAllLanzamientos(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<LanzamientoDTO>> getAllLanzamientos(@ApiParam Pageable pageable, Long proyectoId) {
         log.debug("REST request to get a page of Lanzamientos");
-        Page<LanzamientoDTO> page = lanzamientoService.findAll(pageable);
+        Page<LanzamientoDTO> page = lanzamientoService.findAll(pageable, proyectoId);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/lanzamientos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
