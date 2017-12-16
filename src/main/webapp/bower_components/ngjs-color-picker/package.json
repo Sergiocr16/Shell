@@ -1,0 +1,71 @@
+{
+  "name": "ngjs-color-picker",
+  "version": "1.1.0",
+  "description": "A color picker with a few extra functions - for AngularJS",
+  "main": "dist/ngjs-color-picker.js",
+  "files": [
+    "dist",
+    "!dist/index.html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simeg/ngjs-color-picker.git"
+  },
+  "keywords": [
+    "colors",
+    "color",
+    "picker",
+    "color-picker",
+    "gradient",
+    "angularjs",
+    "directive"
+  ],
+  "author": "Simon Egersand <s.egersand@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simeg/ngjs-color-picker/issues"
+  },
+  "homepage": "https://github.com/simeg/ngjs-color-picker",
+  "dependencies": {
+    "angular": "^1.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "copy-webpack-plugin": "^3.0.1",
+    "eslint": "^3.9.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.4.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.7.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.5.2",
+    "jasmine-node": "^1.14.5",
+    "karma": "^1.3.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-mocha-reporter": "^2.2.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "null-loader": "^0.1.1",
+    "phantomjs-prebuilt": "^2.1.13",
+    "postcss-loader": "^0.9.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "build": "rimraf dist && webpack --bail --progress --profile",
+    "commit": "npm run pre-commit",
+    "lint": "./node_modules/eslint/bin/eslint.js .eslintrc.yml './**/*.js'",
+    "pre-commit": "npm run lint && npm run test",
+    "serve": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "./node_modules/karma/bin/karma start ./test/karma.conf.js --single-run",
+    "test:watch": "./node_modules/karma/bin/karma start ./test/karma.conf.js"
+  }
+}

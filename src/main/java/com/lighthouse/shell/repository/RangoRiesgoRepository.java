@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
 
+import java.util.List;
+
 
 /**
  * Spring Data JPA repository for the RangoRiesgo entity.
@@ -14,5 +16,5 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface RangoRiesgoRepository extends JpaRepository<RangoRiesgo,Long> {
-    Page<RangoRiesgo> findByProyectoId(Pageable pageable, Long proyectoId);
+    List<RangoRiesgo> findByProyectoId(Long proyectoId);
 }

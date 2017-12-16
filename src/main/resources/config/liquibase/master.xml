@@ -15,6 +15,7 @@
     <include file="classpath:config/liquibase/changelog/20171214233735_added_entity_Riesgo.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20171214233736_added_entity_Probabilidad.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20171214233737_added_entity_RangoRiesgo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20171216064247_added_entity_CategoriaRangoRiesgo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20171214233729_added_entity_constraints_Sprint.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20171214233730_added_entity_constraints_Lanzamiento.xml" relativeToChangelogFile="false"/>

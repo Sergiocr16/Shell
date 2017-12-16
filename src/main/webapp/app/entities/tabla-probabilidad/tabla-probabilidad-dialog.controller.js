@@ -13,8 +13,15 @@
         vm.tablaProbabilidad = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.probabilidads = Probabilidad.query();
+        vm.probabilidades = [];
+       function getProbabilidad(){
+        return {id:null,categoria:null,descripcion:null,rangoMayor:null,rangoMenor:null,tablaProbabilidadId:entity.id}
+        }
 
+        vm.probabilidades.push(getProbabilidad())
+        vm.agregarProbabilidad = function(){
+         vm.probabilidades.push(getProbabilidad())
+        }
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
@@ -35,6 +42,15 @@
         function onSaveSuccess (result) {
             $scope.$emit('shellApp:tablaProbabilidadUpdate', result);
             $uibModalInstance.close(result);
+            angular.forEach(vm.probabilidades,function(proba,i){
+
+            proba.tablaProbabilidadId = result.id
+            proba.categoria = proba.categoria.toUpperCase();
+                   Probabilidad.save(proba,function(){
+
+                   });
+               })
+
             vm.isSaving = false;
         }
 

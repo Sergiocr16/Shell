@@ -17,6 +17,7 @@
                 "riesgo": "Riesgo",
                 "probabilidad": "Probabilidad",
                 "rangoRiesgo": "Rango Riesgo",
+                "categoriaRangoRiesgo": "Categoria Rango Riesgo",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -8,44 +8,54 @@
     </div>
     <div class="modal-body">
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-sm table-striped table-bordered">
                 <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="nombre"><span>Combinación</span></th>
-                    <th jh-sort-by="color"><span>Resultado</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="probabilidad"><span>Color</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
+                    <th jh-sort-by="valor"><span>Valor</span></th>
+                    <th jh-sort-by="color"><span>Resultado</span></th>
+                    <th jh-sort-by="probabilidad"><span>Color</span></span></th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="rangoRiesgo in vm.rangoRiesgos | orderBy: 'valor'">
                     <!--<td><a ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})">{{rangoRiesgo.id}}</a></td>-->
                     <td>Combinación de {{rangoRiesgo.impactoDescription}} con {{rangoRiesgo.probabilidadDescription}}</td>
+                    <!--<td>-->
+                        <!--<a ui-sref="proyecto-detail({id:rangoRiesgo.proyectoId})">{{rangoRiesgo.valor}}</a>-->
+                    <!--</td>-->
+                    <td>{{rangoRiesgo.impacto*rangoRiesgo.probabilidad}}</td>
                     <td>
-                        <a ui-sref="proyecto-detail({id:rangoRiesgo.proyectoId})">{{rangoRiesgo.valor}}</a>
+                        <select class="form-control" id="field_resgo" name="riesgo"  ng-model="rangoRiesgo.nombre" ng-change="vm.cambiarColor(rangoRiesgo)" ng-options="riesgo.nombre as riesgo.nombre for riesgo in vm.riesgos" required>
+                            <option value=""></option>
+                        </select>
                     </td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="rango-riesgo.edit({id:rangoRiesgo.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="rango-riesgo.delete({id:rangoRiesgo.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
+                    <td style="background-color:{{rangoRiesgo.color}}">
+
                     </td>
+                    <!--<td class="text-right">-->
+                        <!--<div class="btn-group flex-btn-group-container">-->
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="rango-riesgo-detail({id:rangoRiesgo.id})"-->
+                                    <!--class="btn btn-info btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-eye-open"></span>-->
+                                <!--<span class="hidden-sm-down" data-translate="entity.action.view"></span>-->
+                            <!--</button>-->
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="rango-riesgo.edit({id:rangoRiesgo.id})"-->
+                                    <!--class="btn btn-primary btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
+                                <!--<span class="hidden-sm-down" data-translate="entity.action.edit"></span>-->
+                            <!--</button>-->
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="rango-riesgo.delete({id:rangoRiesgo.id})"-->
+                                    <!--class="btn btn-danger btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
+                                <!--<span class="hidden-sm-down" data-translate="entity.action.delete"></span>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</td>-->
                 </tr>
                 </tbody>
             </table>
@@ -53,10 +63,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+           <span data-translate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            &nbsp;<span data-translate="entity.action.save">Save</span>
         </button>
     </div>
 </form>
