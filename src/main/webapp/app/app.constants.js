@@ -5,6 +5,6 @@
         .module('shellApp')
         .constant('VERSION', "0.0.1-SNAPSHOT")
         .constant('DEBUG_INFO_ENABLED', false)
-        .constant('BUILD_TIMESTAMP', 1513416252800)
+        .constant('BUILD_TIMESTAMP', 1513535357061)
 ;
 })();
