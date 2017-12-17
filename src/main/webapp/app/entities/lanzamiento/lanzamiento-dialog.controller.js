@@ -9,7 +9,7 @@
 
     function LanzamientoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Lanzamiento, Proyecto, Sprint) {
         var vm = this;
-alert($stateParams.idProyecto)
+
         vm.lanzamiento = entity;
         vm.clear = clear;
         vm.save = save;
@@ -25,6 +25,7 @@ alert($stateParams.idProyecto)
         }
 
         function save () {
+        vm.lanzamiento.proyectoId = $stateParams.id
             vm.isSaving = true;
             if (vm.lanzamiento.id !== null) {
                 Lanzamiento.update(vm.lanzamiento, onSaveSuccess, onSaveError);

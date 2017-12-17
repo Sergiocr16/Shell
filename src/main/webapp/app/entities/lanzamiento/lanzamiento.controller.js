@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-        console.log(vm.proyecto.id)
+
             Lanzamiento.query({
                 proyectoId: vm.proyecto.id,
                 page: pagingParams.page - 1,
