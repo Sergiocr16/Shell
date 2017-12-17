@@ -14,32 +14,32 @@
     <div class="table-responsive">
         <table class="table table-sm table-striped table-bordered">
             <thead>
-            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()" ng-repeat="sprint in vm.sprints track by sprint.id">
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()" >
                 <th jh-sort-by="numero"><span ></span></span></th>
-                <th jh-sort-by="numero"><span ></span>Sprint {{sprint.numero}}</span></th>
+                <th jh-sort-by="numero" ng-repeat="sprint in vm.sprints track by sprint.id"><span ></span>Sprint {{sprint.numero}}</span></th>
 
             </tr>
             </thead>
-            <tbody ng-repeat="sprint in vm.sprints track by sprint.id">
+            <tbody>
 
             <tr>
                 <td>
                     Total de días
                 </td>
-                <td>{{sprint.comentario}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.comentario}} días</td>
             </tr>
             <tr>
                 <td>
                    Días concluidos
                 </td>
-                <td>{{sprint.status}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.status}} días</td>
             </tr>
             <tr>
                 <td>
                    Puntos planeados
                 </td>
-                <td>
-                    {{sprint.puntosPlaneados}}
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">
+                    {{sprint.puntosPlaneados}} puntos
                 </td>
 
             </tr>
@@ -47,85 +47,82 @@
                 <td>
                     Puntos realizados
                 </td>
-                <td>{{sprint.puntosRealizados}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.puntosRealizados}} puntos</td>
             </tr>
             <tr>
                 <td>
-                    BAC
+                    Presupuesto al finalizar el proyecto (BAC)
                 </td>
-                <td>
-                    {{sprint.bac}}
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">
+                    ${{sprint.bac}}
                 </td>
 
             </tr>
             <tr>
                 <td>
-                    PV
+                    Valor planeado (PV)
                 </td>
-                <td>{{sprint.pv}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.pv}}</td>
             </tr>
             <tr>
                 <td>
-                    EV
+                    Costo real (AC)
                 </td>
-                <td>{{sprint.ev}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.ac}}</td>
+            </tr>
+
+            <tr>
+                <td>
+                    Valor ganado (EV)
+                </td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.ev}}</td>
             </tr>
             <tr>
                 <td>
-                   AC
+                    Estimado hasta la conclusión (ETC)
                 </td>
-                <td>{{sprint.ac}}</td>
-            </tr>
-            <tr>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.etc}}</td>
+            </tr> <tr>
                 <td>
-                   SV
+                    Estimado por completar (EAC)
                 </td>
-                <td>{{sprint.sv}}</td>
-            </tr>
-            <tr>
-                <td>
-                    CV
-                </td>
-                <td>{{sprint.cv}}</td>
-            </tr>
-            <tr>
-                <td>
-                    SPI
-                </td>
-                <td>{{sprint.spi}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.eac}}</td>
 
             </tr>
             <tr>
                 <td>
-                   CPI
+                    Variación a la conclusión (VAC)
                 </td>
-                <td>{{sprint.cpi}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.vac}}</td>
             </tr>
             <tr>
                 <td>
-                   ETC
+                    Variación del costo (CV)
                 </td>
-                <td>{{sprint.etc}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">${{sprint.cv}} <span ng-show="sprint.cv>0">(Costes por encima de lo previsto)</span><span ng-show="sprint.cv<0">(Costes por debajo de lo previsto)</span></td>
             </tr>
             <tr>
                 <td>
-                    EAC
+                   Variación del cronograma(SV)
                 </td>
-                <td>{{sprint.eac}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.sv}}<span ng-show="sprint.sv>0"> (Tiempo invertido por debajo de lo previsto )</span><span ng-show="sprint.sv<0"> (Tiempo invertido por encima de lo previsto)</span></td>
+            </tr>
+
+            <tr>
+                <td>
+                    Índice de desempeño del cronograma (SPI)
+                </td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.spi}}<span ng-show="sprint.sv>1"> (Tiempo invertido por debajo de lo previsto )</span><span ng-show="sprint.sv<1"> (Tiempo invertido por encima de lo previsto)</span></td>
 
             </tr>
             <tr>
                 <td>
-                   VAC
+                   Índice de desempeño del costo (CPI)
                 </td>
-                <td>{{sprint.vac}}</td>
+                <td ng-repeat="sprint in vm.sprints track by sprint.id">{{sprint.cpi}}<span ng-show="sprint.cv>1"> (Costes por encima de lo previsto)</span><span ng-show="sprint.cv<1"> (Costes por debajo de lo previsto)</span></td>
             </tr>
-            <tr>
-                <td>
-                    Status
-                </td>
-                <td>{{sprint.vac}}</td>
-            </tr>
+
+
             <!--<tr ng-repeat="sprint in vm.sprints track by sprint.id">-->
                 <!--<td>{{sprint.numero}}</td>-->
                 <!--<td>{{sprint.status}}</td>-->
