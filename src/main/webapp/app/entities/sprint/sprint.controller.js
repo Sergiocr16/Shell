@@ -17,6 +17,7 @@
         vm.transition = transition;
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.lanzamiento = entity;
+
         loadAll();
 
         function loadAll () {
@@ -38,6 +39,12 @@
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.sprints = data;
+                if(vm.sprints.cv<0){
+                        vm.cvmensaje = 'Costes por encima de lo previsto';
+                } else {
+                    vm.cvmensaje = 'Costes por encima de lo previsto';
+                }
+
                 vm.page = pagingParams.page;
             }
             function onError(error) {
